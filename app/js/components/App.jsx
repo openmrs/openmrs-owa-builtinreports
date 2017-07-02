@@ -10,13 +10,36 @@
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
 import React from 'react';
+import {Header} from './common/Header';
+import BreadCrumbComponent from './breadCrumb/breadCrumbComponent';
+import ListOfUsers from './reports/ListOfUsers';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+        super(props);
+        this.state = {
+            display: 'block'
+        };
+    }
+
   render() {
+    const display = this.state;
     return (
-      <div>
-        <h1>Hello, world</h1>
-      </div>
-    )
+            <div>
+                <div 
+                    id="tabbed-cohort">
+                    <Header/>
+                    <BreadCrumbComponent/>
+                
+                </div>
+                <div id="body-wrapper">
+                    <div id="displayReports"  className="col-md-12 section">
+                        <p>My report has to display here</p>
+                        <ListOfUsers />
+                    </div>
+                </div>
+            </div>
+        );
   }
 }
