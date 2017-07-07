@@ -1,0 +1,17 @@
+.container {
+width: 500px;
+height: 500px;
+border: 1px solid red;
+position: relative;
+}
+
+.menuItem {
+width: 100px;
+height: 100px;
+line-height: 100px;
+border: 1px solid black;
+position: absolute;
+text-align: center;             
+background: rgb(0, 150, 0);
+background: rgba(0, 150, 0, .5);
+}
