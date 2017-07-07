@@ -16,9 +16,11 @@ class ListOfUsers extends Component {
 
     componentWillMount() {
 
-        this.fetchLocation('reportingrest/reportRequest?reportDefinition=d3950d7c-4881-11e7-a919-92ebcb67fe33').then((response) => {
+        this.fetchLocation('reportingrest/reportRequest/reportDefinition/d3950d7c-4881-11e7-a919-92ebcb67fe33').then((response) => {
             this.setState({ listOfUsersReport: response });
         });
+
+        
     }
 
     fetchLocation(url) {
@@ -38,7 +40,7 @@ class ListOfUsers extends Component {
 
         return (
             <h1>
-                records fetched: {this.state.listOfUsersReport.length}
+                records fetched size: {this.state.listOfUsersReport.length}
             </h1>
         );
     }
