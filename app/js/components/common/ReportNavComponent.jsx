@@ -10,16 +10,17 @@ class ReportNavComponent extends Component {
 
     render(){
         return (
-        <div className="container">
+        <div className="container123">
             <div className="menuItem">
-                First element
+                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> First element</p>
             </div>
             <div className="menuItem">
-                Second element
+                <p className="contentParagraph">Second element</p>
             </div>
             <div className="menuItem">
-                Third element
+                <p className="contentParagraph">Third element</p>
             </div>
+    
         </div>
         );
     }

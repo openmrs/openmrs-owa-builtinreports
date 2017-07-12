@@ -12,8 +12,7 @@
 import React from 'react';
 import {Header} from './common/Header';
 import BreadCrumbComponent from './breadCrumb/breadCrumbComponent';
-import ListOfUsers from './reports/ListOfUsers';
-import ReportNavComponent from './common/ReportNavComponent';
+import MainLayout from './common/MainLayout';
 
 export default class App extends React.Component {
 
@@ -36,9 +35,7 @@ export default class App extends React.Component {
                 </div>
                 <div id="body-wrapper">
                     <div id="displayReports"  className="col-md-12 section">
-                        <ReportNavComponent />
-                        <p>My report has to display here</p>
-                        <ListOfUsers />
+                        <MainLayout />
                     </div>
                 </div>
             </div>

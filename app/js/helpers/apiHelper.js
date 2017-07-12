@@ -37,8 +37,10 @@ export class ApiHelper {
 
   send() {
     const request = this.requestLibrary;
+    console.log('about to send request');
     const response = request(`${BASE_URL}${this.requestUrl}`, this.requestOptions)
       .then((data) => {
+        console.log(''+data);
           if ([401, 500].includes(data.status)) {
               const loginUrl = `${window.location.origin}/${contextPath}/login.htm`;
               return  window.location.href = loginUrl;
