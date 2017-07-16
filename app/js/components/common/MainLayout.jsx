@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MainLayout.css';
 import ReportNavComponent from './ReportNavComponent';
-import ListOfUsers from '../reports/ListOfUsers/ListOfUsers';
+import NumberOfPatients from '../reports/NumberOfPatients/NumberOfPatients';
 
 
 
@@ -19,7 +19,7 @@ class MainLayout extends Component {
                 <ReportNavComponent />
             </div>
             <div className="reportContent">
-                <ListOfUsers />
+                <NumberOfPatients />
             </div>
         </div>
         );

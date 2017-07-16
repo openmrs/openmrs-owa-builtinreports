@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { ApiHelper } from '../../../helpers/apiHelper';
 import * as ReportConstants from '../../../helpers/ReportConstants';
-import './ListOfUsers.css';
+import './ListOfProviders.css';
 
 /**
- * Display the result of List of Users report
+ * Display the result of List of providers report
  */
-class ListOfUsers extends Component {
+class ListOfProviders extends Component {
 
     constructor() {
         super();
         this.state = {
-            listOfUsersReport: {},
+            listOfProvidersReport: {},
             reportColumnNames: Array(),
             reportRowData: Array()
         };
@@ -21,7 +21,7 @@ class ListOfUsers extends Component {
     }
 
     getReportUUID() {
-        return "d3950d7c-4881-11e7-a919-92ebcb67fe33";
+        return "d3950ea8-4881-11e7-a919-92ebcb67fe33";
     }
 
     getReportParameter() {
@@ -41,16 +41,16 @@ class ListOfUsers extends Component {
         new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.getReportUUID(), this.getReportParameter())
             .then((response) => {
                 this.resolveResponse(response);
-                this.setState({ listOfUsersReport: response });
+                this.setState({ listOfProvidersReport: response });
             });
     }
 
-
     render() {
+
         return (
             <div>
                 <h1>
-                    List of users
+                    List of Providers
                 </h1>
 
                 <table className="reportTable">
@@ -93,4 +93,4 @@ class ListOfUsers extends Component {
 
 }
 
-export default ListOfUsers;
+export default ListOfProviders;
