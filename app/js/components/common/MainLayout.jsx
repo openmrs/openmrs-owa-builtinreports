@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MainLayout.css';
 import ReportNavComponent from './ReportNavComponent';
-import ListOfUsers from '../reports/ListOfUsers';
+import ListOfUsers from '../reports/ListOfUsers/ListOfUsers';
 
 
 
