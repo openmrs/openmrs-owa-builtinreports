@@ -150,7 +150,7 @@ var webpackConfig = {
 	        	
 	        	
                 
-                    'react', 'react-router'
+                    'react', 'react-router-dom'
                     
                 
 	            ]
@@ -159,7 +159,7 @@ var webpackConfig = {
   target,
   output: {
     path: outputPath,
-    filename: '[name]'+outputFile,
+    filename: '[name]'+outputFile
   },
   module: {
     loaders: [{

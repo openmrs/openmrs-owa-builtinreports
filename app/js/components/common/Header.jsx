@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, IndexLink} from 'react-router';
+import {NavLink} from 'react-router-dom';
 import {ApiHelper} from '../../helpers/apiHelper';
 
 const NUMBER_OF_COLUMNS = 3;
@@ -81,7 +81,7 @@ export class Header extends Component {
                 </div>
 
                 <ul className="navbar-right nav-header">
-                    <Link to="" activeClassName="active">
+                    <NavLink to="" activeClassName="active">
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span className="glyphicon glyphicon-user"/> {' ' + this.state.currentUser}
@@ -93,9 +93,9 @@ export class Header extends Component {
                                 </li>
                             </ul>
                         </li>
-                    </Link>
+                    </NavLink>
 
-                    <Link to="" activeClassName="active">
+                    <NavLink to="" activeClassName="active">
                         <li className="dropdown dropdown-large">
                             <a className="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span className="glyphicon glyphicon glyphicon-map-marker"/> {(this.state.currentLocationTag != "")
@@ -108,14 +108,14 @@ export class Header extends Component {
                                 {this.dropDownMenu(this.getLocations())}
                             </ul>
                         </li>
-                    </Link>
+                    </NavLink>
 
-                    <Link to="" activeClassName="active">
+                    <NavLink to="" activeClassName="active">
                         <li>
                             <a href="#">Logout {' '}
                                 <span className="glyphicon glyphicon-log-out"/></a>
                         </li>
-                    </Link>
+                    </NavLink>
                 </ul>
             </header>
         );

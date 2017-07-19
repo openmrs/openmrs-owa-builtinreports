@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './ReportNavMenu.css';
 
 /**
@@ -8,40 +9,82 @@ import './ReportNavMenu.css';
 class ReportNavComponent extends Component {
 
 
-    render(){
+    render() {
         return (
-        <div className="container123">
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> List of Users</p>
+            <div className="container123">
+                <div className="menuItem">
+                    <p className="contentParagraph">
+                        <i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink activeClassName="active" to="/ListOfUsers">
+                            List of Users
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/ListOfProviders">
+                            List of Providers
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/ListOfDiagnosis">
+                            List of Diagnosis
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/ListOfNewPatients">
+                            List of New Patient Registrations
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/NumberOfAdmissions">
+                            Number of Admissions
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/NumberOfDischarges">
+                            Number of Discharges
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/NumberOfPatients">
+                            Number of Patient Registrations
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/NumberOfTransfers">
+                            Number of Transfers
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/NumberOfVisitNotes">
+                            Number of Visit Notes
+                        </NavLink>
+                    </p>
+                </div>
+                <div className="menuItem">
+                    <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i>
+                        <NavLink to="/NumberOfVisits">
+                            Number of Visits
+                        </NavLink>
+                    </p>
+                </div>
+                
             </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> List of Providers</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> List of Diagnosis</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> List of New Patient Registrations</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> Number of Admissions</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> Number of Discharges</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> Number of Patient Registrations</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> Number of Transfers</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> Number of Visit Notes</p>
-            </div>
-            <div className="menuItem">
-                <p className="contentParagraph"><i className="glyphicon glyphicon-list-alt float-left" ></i> Number of Visits</p>
-            </div>
-        </div>
         );
     }
 }

@@ -10,7 +10,7 @@
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
 import React from 'react'
-import {Route} from 'react-router'
+import {Route} from 'react-router-dom'
 import App from './components/App'
 
 export default () => {

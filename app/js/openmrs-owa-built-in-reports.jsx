@@ -11,12 +11,12 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import {Router, Route, hashHistory} from 'react-router'
+import {Router, Route, hashHistory, BrowserRouter} from 'react-router-dom'
 
 import routes from './routes'
 
 render((
-         <Router history={hashHistory}>
+         <BrowserRouter basename="/openmrs/owa/openmrs-owa-built-in-reports" history={hashHistory}>
            {routes()}
-         </Router>
+         </BrowserRouter>
        ), document.getElementById('app'));
