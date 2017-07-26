@@ -55,40 +55,42 @@ class ReportAsTableView extends Component {
                     {this.state.report.definition.name}
                 </h1>
 
-                <table className="reportTable">
-                    <thead>
-                        <tr>
+                <div className="table-container">
+                    <table className="reportTable">
+                        <thead>
+                            <tr>
+                                {
+                                    this.state.reportColumnNames.map(function (element) {
+                                        return (
+                                            <th key={element.name}>{element.label}</th>
+                                        )
+                                    })
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
                             {
-                                this.state.reportColumnNames.map(function (element) {
+                                this.state.reportRowData.map(function (rowObj, index) {
+
                                     return (
-                                        <th key={element.name}>{element.label}</th>
+                                        <tr key={index}>
+                                            {
+                                                this.state.reportColumnNames.map(function (element) {
+
+                                                    return (<td key={element.name}>{rowObj[element.name]}</td>)
+
+                                                })
+
+                                            }
+                                        </tr>
                                     )
-                                })
+
+                                }, this)
                             }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.reportRowData.map(function (rowObj, index) {
+                        </tbody>
 
-                                return (
-                                    <tr key={index}>
-                                        {
-                                            this.state.reportColumnNames.map(function (element) {
-
-                                                return (<td key={element.name}>{rowObj[element.name]}</td>)
-
-                                            })
-
-                                        }
-                                    </tr>
-                                )
-
-                            }, this)
-                        }
-                    </tbody>
-
-                </table>
+                    </table>
+                </div>
             </div>
         );
     }

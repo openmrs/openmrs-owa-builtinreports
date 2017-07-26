@@ -1,22 +1,69 @@
-.reportTable {
+.table-container {
+    height: 300px;
+}
+
+table.reportTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
     width: 100%;
+    position:relative;
 }
 
-.reportTable td, .reportTable th {
-    border: 1px solid #ddd;
-    padding: 8px;
+table.reportTable tr:nth-child(even){background-color: #f2f2f2;}
+
+table.reportTable tr:hover {background-color: #ddd;}
+
+table.reportTable thead {
+    /* head takes the height it requires, 
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+    display: block;
+    overflow-y: auto;
+}
+table.reportTable tbody {
+    /* body takes all the remaining available space */
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+}
+table.reportTable tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+table.reportTable thead:before
+{ 
+	position: absolute;
+    right:0em;
+	width: 1em;
+	height: 1.2em;
+	content: '';
+	background-color: menu;
+    margin-top: 0em;
+}
+table.reportTable thead:after
+{ 
+	position: absolute;
+    right:0em;
+	width: 1em;
+	height: 1.2em;
+	content: '';
+	background-color: menu;
+    margin-top: -1.2em;
 }
 
-.reportTable tr:nth-child(even){background-color: #f2f2f2;}
-
-.reportTable tr:hover {background-color: #ddd;}
-
-.reportTable th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+table.reportTable th {
+    padding-top: 8px;
+    padding-bottom: 8px;
     text-align: left;
     background-color: #4CAF50;
     color: white;
+}
+
+table.reportTable td, .reportTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
