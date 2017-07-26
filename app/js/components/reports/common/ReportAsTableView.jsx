@@ -11,7 +11,11 @@ class ReportAsTableView extends Component {
     constructor(props) {
         super();
         this.state = {
-            report: {},
+            report: {
+                definition: {
+                    name: ''
+                }
+            },
             reportColumnNames: Array(),
             reportRowData: Array()
         };
@@ -29,6 +33,7 @@ class ReportAsTableView extends Component {
     }
 
     resolveResponse(data) {
+        this.setState({ report: data });
         this.setState({ reportColumnNames: data.dataSets[0].metadata.columns });
         this.setState({ reportRowData: data.dataSets[0].rows });
     }
@@ -39,7 +44,6 @@ class ReportAsTableView extends Component {
         new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.getReportUUID(), this.getReportParameter())
             .then((response) => {
                 this.resolveResponse(response);
-                this.setState({ report: response });
             });
     }
 
@@ -48,7 +52,7 @@ class ReportAsTableView extends Component {
         return (
             <div>
                 <h1>
-                    {this.props.reportName}
+                    {this.state.report.definition.name}
                 </h1>
 
                 <table className="reportTable">

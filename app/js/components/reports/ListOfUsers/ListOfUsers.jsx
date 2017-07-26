@@ -26,8 +26,7 @@ class ListOfUsers extends Component {
     render() {
         return (
             <div>
-                <ReportAsTableView reportName="List of Users" 
-                                   reportUUID={this.getReportUUID()} 
+                <ReportAsTableView reportUUID={this.getReportUUID()} 
                                    reportParameters={this.getReportParameter()}/>
             </div>
         );

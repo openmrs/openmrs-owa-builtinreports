@@ -27,8 +27,7 @@ class ListOfProviders extends Component {
 
         return (
             <div>
-                <ReportAsTableView reportName="List of Providers" 
-                                   reportUUID={this.getReportUUID()} 
+                <ReportAsTableView reportUUID={this.getReportUUID()} 
                                    reportParameters={this.getReportParameter()}/>
             </div>
         );

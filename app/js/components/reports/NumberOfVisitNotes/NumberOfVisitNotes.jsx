@@ -27,8 +27,7 @@ class NumberOfVisitNotes extends Component {
     render() {
         return (
             <div>
-                <ReportAsTableView reportName="Number of Visit Notes" 
-                                   reportUUID={this.getReportUUID()} 
+                <ReportAsTableView reportUUID={this.getReportUUID()} 
                                    reportParameters={this.getReportParameter()}/>
             </div>
         );
