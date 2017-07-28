@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportAsTableView renders correctly  renders correctly 1`] = `
+<div>
+  <h1>
+    
+  </h1>
+  <div
+    className="table-container"
+  >
+    <table
+      className="reportTable"
+    >
+      <thead>
+        <tr />
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</div>
+`;
