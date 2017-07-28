@@ -14,7 +14,9 @@
     "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
+    "archiver": "^1.0.0",
     "babel-core": "^6.2.1",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.16.0",
@@ -26,14 +28,17 @@
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.24.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^20.0.4",
+    "on-build-webpack": "^0.1.0",
     "raw-loader": "^0.5.1",
+    "react-test-renderer": "^15.6.1",
+    "regenerator-runtime": "^0.10.5",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
-    "yargs": "^4.3.1",
-    "archiver": "^1.0.0",
-    "on-build-webpack": "^0.1.0"
+    "yargs": "^4.3.1"
   },
   "scripts": {
     "clean": "rimraf dist && rimraf coverage*",
@@ -42,7 +47,7 @@
     "build:prod": "npm run test && npm run build",
     "build:deploy": "webpack --progress --colors --mode=deploy --target=web",
     "watch": "webpack --progress --colors --watch --mode=deploy --target=web",
-    "test": "echo \"Error: no test specified\""
+    "test": "jest"
   },
   "keywords": [
     "OpenMRS",
@@ -51,5 +56,30 @@
     "App"
   ],
   "author": "JudeNiroshan",
-  "license": "MPL-2.0"
+  "license": "MPL-2.0",
+  "jest": {
+    "automock": false,
+    "browser": true,
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./app/js/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "./node_modules/babel-jest",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./app/js/__mocks__/fileTransformer.js"
+    },
+    "testEnvironment": "jsdom",
+    "roots": [
+      "./app/js/__tests__"
+    ],
+    "testRegex": ".*.test.js",
+    "verbose": true
+  }
 }
