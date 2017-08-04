@@ -1,26 +1,72 @@
-.container123 {
+.navWrapper {
     width: 100%;
     height: 500px;
     position: relative;
     background: rgb(54, 52, 99);
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: white;
+	box-shadow: 
+		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+		0 0 200px 1px rgba(255, 255, 255, 0.5);
+}
+
+#navWrapper ul {
+	    width: 100%;
+    height: 6%;
+    position: relative;
+}
+
+* {margin: 0; padding: 0;}
+
+.menuItemHeader {
+	font-size: 16px;
+    text-align: center;   
+	line-height: 34px;
+	background: #003040; 
+	background: linear-gradient(#003040, #002535);
+}
+
+.menuItemHeader:hover {
+	text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.menuItemHeader span {
+	font-size: 16px;
 }
 
 .menuItem {
-    width: 100%;
-    height: 6%;
-    position: relative;
-    text-align: center;          
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 30px;
+	display: block;
+	padding: 0 6px;
+    border-bottom:solid white 0.1em;
+    cursor: pointer;
+    -moz-transition: all 0.15s ease-in;
+    -o-transition: all 0.15s ease-in;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
 }
 
-.contentParagraph{
-    color: rgb(255, 255, 255);
-    background: rgb(54, 52, 99);
-    position: relative;
-    text-align: left;
-    top: 50%;
-    transform: translateY(-50%);
+.menuItem:hover {
+	background: #6763cc;
+	border-left: 5px solid white;
+    transition: all 0.15s;
+    font-weight: 600;
+    background: -webkit-linear-gradient(#7672e0, #003040); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7672e0, #003040); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7672e0, #003040); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7672e0, #003040); /* Standard syntax (must be last) */
 }
 
-.active{
-    font-weight: bold;
+.menuItem span{
+    padding-right: 5px;
+    font-size: 17px;
 }
+
+.menuItem a {
+  color:inherit;
+  text-decoration: none;
+ }
+

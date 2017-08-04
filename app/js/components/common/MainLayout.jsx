@@ -40,6 +40,7 @@ class MainLayout extends Component {
                             <Route path="/NumberOfTransfers" component={NumberOfTransfers} />
                             <Route path="/NumberOfVisitNotes" component={NumberOfVisitNotes} />
                             <Route path="/NumberOfVisits" component={NumberOfVisits} />
+                            <Route component={ListOfUsers} />
                         </Switch>
                     </div>
             </div>
