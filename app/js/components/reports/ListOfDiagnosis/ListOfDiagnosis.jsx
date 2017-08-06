@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
+import BasicXYChart from '../common/BasicXYChart';
+import ReportTitle from '../common/ReportTitle';
 
 /**
  * Display the result of List of diagnosis report
@@ -27,8 +29,14 @@ class ListOfDiagnosis extends Component {
     render() {
         return (
             <div>
+
+                <ReportTitle heading="List of Diagnosis" />
                 <ReportAsTableView reportUUID={this.getReportUUID()} 
                                    reportParameters={this.getReportParameter()}/>
+
+                <BasicXYChart reportUUID={this.getReportUUID()}
+                                  reportParameters={this.getReportParameter()}
+                                  X_label='name' Y_label='count'/>
             </div>
         );
     }

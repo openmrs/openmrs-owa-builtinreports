@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Antic+Slab');
+
+.titleContainer {
+    font-family: 'Antic Slab', serif;
+    background-color: #edecec;
+    padding: 5px 16px 2px;
+    text-align: right;
+    font-size: 24px;
+    border-bottom: 1px solid green;
+}
+
+
+

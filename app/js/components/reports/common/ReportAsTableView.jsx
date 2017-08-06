@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { ApiHelper } from '../../../helpers/apiHelper';
 import * as ReportConstants from '../../../helpers/ReportConstants';
-import './ReportAsTableView.css';
+import ReactDataGrid from 'react-data-grid';
+import moment from 'moment';
 
 /**
  * Display results of a report as a table
@@ -22,6 +23,7 @@ class ReportAsTableView extends Component {
         this.getReportUUID = this.getReportUUID.bind(this);
         this.getReportParameter = this.getReportParameter.bind(this);
         this.resolveResponse = this.resolveResponse.bind(this);
+        this.rowGetter = this.rowGetter.bind(this);
     }
 
     getReportUUID() {
@@ -47,50 +49,36 @@ class ReportAsTableView extends Component {
             });
     }
 
+    getColumns() {
+        var columns = this.state.reportColumnNames.map(function (element) {
+            return { key: element.name, name: element.label, resizable: true };
+
+        });
+        return columns;
+    }
+
+    rowGetter(i) {
+        let row = this.state.reportRowData[i];
+
+        Object.keys(row).forEach(function(key,index) {
+            if(row[key] != null && row[key] != 'undefined' && isNaN(row[key]) && moment(row[key]).isValid()){
+                row[key] = moment(row[key]).format("YYYY-MM-DD HH:mm:ss");
+            }
+        });
+        return row;
+    }
+
 
     render() {
         return (
-            <div>
-                <h1>
-                    {this.state.report.definition.name}
-                </h1>
+            <div style={{border: '1px solid black'}}>
 
-                <div className="table-container">
-                    <table className="reportTable">
-                        <thead>
-                            <tr>
-                                {
-                                    this.state.reportColumnNames.map(function (element) {
-                                        return (
-                                            <th key={element.name}>{element.label}</th>
-                                        )
-                                    })
-                                }
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.reportRowData.map(function (rowObj, index) {
+                <ReactDataGrid
+                    columns={this.getColumns()}
+                    rowGetter={this.rowGetter}
+                    rowsCount={this.state.reportRowData.length} />
 
-                                    return (
-                                        <tr key={index}>
-                                            {
-                                                this.state.reportColumnNames.map(function (element) {
 
-                                                    return (<td key={element.name}>{rowObj[element.name]}</td>)
-
-                                                })
-
-                                            }
-                                        </tr>
-                                    )
-
-                                }, this)
-                            }
-                        </tbody>
-
-                    </table>
-                </div>
             </div>
         );
     }
