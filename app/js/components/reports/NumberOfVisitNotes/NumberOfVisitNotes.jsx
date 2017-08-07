@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
+import ReportTitle from '../common/ReportTitle';
 
 /**
  * Display the result of Number of Visit Notes report
@@ -27,6 +28,7 @@ class NumberOfVisitNotes extends Component {
     render() {
         return (
             <div>
+                <ReportTitle heading="Number of Visit Notes" />
                 <ReportAsTableView reportUUID={this.getReportUUID()} 
                                    reportParameters={this.getReportParameter()}/>
             </div>

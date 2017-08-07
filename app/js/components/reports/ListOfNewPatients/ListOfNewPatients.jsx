@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
+import ReportTitle from '../common/ReportTitle';
 
 /**
  * Display the result of List of New Patient Registrations report
@@ -26,6 +27,8 @@ class ListOfNewPatients extends Component {
    render() {
         return (
             <div>
+                
+                <ReportTitle heading="List of New Patient Registrations" />
                 <ReportAsTableView reportUUID={this.getReportUUID()} 
                                    reportParameters={this.getReportParameter()}/>
             </div>

@@ -8,12 +8,10 @@
 
 .reportNavBar {
     width: 20%;
-    border: 1px solid black;
     position: relative;
 }
 
 .reportContent {
     width: 80%;
-    border: 1px solid black;
     position: relative;
 }

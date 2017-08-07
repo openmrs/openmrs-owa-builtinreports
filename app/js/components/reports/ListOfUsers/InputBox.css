@@ -54,14 +54,17 @@ input:checked + .slider:before {
 }
 
 .inputBoxWrapper {
-    float: right;
+    width: 100%;
     display: inline-flex;
+    background-color: #edecec;
 }
 
 .textLabel {
     padding-top: 7px;
+    margin-left: auto;
 }
 
 .toggleContainer {
     padding: 3px;
+    margin-right: 13px;
 }

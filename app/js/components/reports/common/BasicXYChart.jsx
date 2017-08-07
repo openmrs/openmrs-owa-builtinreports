@@ -2,6 +2,7 @@ import Line from 'react-chartjs';
 import React, { Component } from 'react';
 import { ApiHelper } from '../../../helpers/apiHelper';
 import * as ReportConstants from '../../../helpers/ReportConstants';
+import DataNotFound from './DataNotFound';
 import moment from 'moment';
 
 /**
@@ -20,17 +21,24 @@ class BasicXYChart extends Component {
             reportColumnNames: Array(),
             reportRowData: Array()
         };
-        this.getReportUUID = this.getReportUUID.bind(this);
-        this.getReportParameter = this.getReportParameter.bind(this);
+        this.init = this.init.bind(this);
         this.resolveResponse = this.resolveResponse.bind(this);
     }
 
-    getReportUUID() {
-        return this.props.reportUUID;
+    componentDidMount() {
+        this.init(this.props.reportParameters);
     }
 
-    getReportParameter() {
-        return this.props.reportParameters;
+    componentWillReceiveProps(nextProps) {
+        this.init(nextProps.reportParameters);
+    }
+
+
+    init(params) {
+        new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.props.reportUUID, params)
+            .then((response) => {
+                this.resolveResponse(response);
+            });
     }
 
     resolveResponse(data) {
@@ -40,14 +48,6 @@ class BasicXYChart extends Component {
         this.getChartData(data);
     }
 
-
-    componentDidMount() {
-
-        new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.getReportUUID(), this.getReportParameter())
-            .then((response) => {
-                this.resolveResponse(response);
-            });
-    }
 
     getChartData(report) {
         var result = {};
@@ -92,7 +92,7 @@ class BasicXYChart extends Component {
                     pointHoverRadius: 10,
                     borderWidth: 1,
                     borderColor: '#000000'
-                    
+
                 }]
             },
             options: {
@@ -116,7 +116,7 @@ class BasicXYChart extends Component {
             }
         };
 
-        if(y_type == 'category'){
+        if (y_type == 'category') {
             config.options.scales.yAxes[0]['type'] = 'category';
         }
         var myChart = new Chart(ctx, config);
@@ -126,7 +126,13 @@ class BasicXYChart extends Component {
     render() {
         return (
             <div>
-                <canvas ref="basicXYChart" width="100%" height="50%" style={{border: '1px solid black'}}></canvas>
+                {this.state.report.uuid != 'undefined' && this.state.reportRowData.length > 0 ? (
+
+                    <canvas ref="basicXYChart" width="100%" height="50%" style={{ border: '1px solid black' }}></canvas>
+                ) : (
+                        <DataNotFound componentName="Chart" />
+                    )}
+
             </div>
         );
     }
