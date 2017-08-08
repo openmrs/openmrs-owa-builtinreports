@@ -19,7 +19,7 @@ class InputBox extends Component {
                 <label className="textLabel">Show deleted users: </label>
                 <div className="toggleContainer">
                     <label className="switch">
-                        <input type="checkbox" onChange = {this.props.handler}/>
+                        <input type="checkbox" onChange = {this.props.listener}/>
                         <span className="slider round"></span>
                     </label>
                 </div>

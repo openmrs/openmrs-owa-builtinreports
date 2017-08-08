@@ -19,31 +19,27 @@ class ListOfUsers extends Component {
         };
 
         this.getReportUUID = this.getReportUUID.bind(this);
-        this.handler = this.handler.bind(this);
+        this.eventListenerForParameter = this.eventListenerForParameter.bind(this);
     }
 
     getReportUUID() {
         return "d3950d7c-4881-11e7-a919-92ebcb67fe33";
     }
 
-    handler(e) {
-
-        console.log('handler called');
- console.log(this.state.parameters.retired);
+    eventListenerForParameter(e) {
         this.setState(prevState => ({
 
             parameters: {
                 retired: !prevState.parameters.retired
             }
         }));
-
     }
 
     render() {
         return (
             <div>
                 <ReportTitle heading="List of Users" />
-                <InputBox handler={this.handler}/>
+                <InputBox listener={this.eventListenerForParameter}/>
                 <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />
 

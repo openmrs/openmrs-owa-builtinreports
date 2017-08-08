@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
-
+import InputBox from '../ListOfUsers/InputBox';
 /**
  * Display the result of List of providers report
  */
@@ -9,19 +9,27 @@ class ListOfProviders extends Component {
 
     constructor() {
         super();
+        this.state = {
+            parameters: {
+                retired: false
+            }
+        };
 
         this.getReportUUID = this.getReportUUID.bind(this);
-        this.getReportParameter = this.getReportParameter.bind(this);
+        this.eventListenerForParameter = this.eventListenerForParameter.bind(this);
     }
 
     getReportUUID() {
         return "d3950ea8-4881-11e7-a919-92ebcb67fe33";
     }
 
-    getReportParameter() {
-        return {
-            "retired": "false"
-        };
+    eventListenerForParameter(e) {
+        this.setState(prevState => ({
+
+            parameters: {
+                retired: !prevState.parameters.retired
+            }
+        }));
     }
 
     render() {
@@ -29,8 +37,11 @@ class ListOfProviders extends Component {
         return (
             <div>
                 <ReportTitle heading="List of Providers" />
-                <ReportAsTableView reportUUID={this.getReportUUID()} 
-                                   reportParameters={this.getReportParameter()}/>
+
+                <InputBox listener={this.eventListenerForParameter}/>
+
+                <ReportAsTableView reportUUID={this.getReportUUID()}
+                    reportParameters={this.state.parameters} />
             </div>
         );
     }
