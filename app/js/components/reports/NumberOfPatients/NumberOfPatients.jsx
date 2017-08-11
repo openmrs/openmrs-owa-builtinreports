@@ -29,22 +29,26 @@ class NumberOfPatients extends Component {
     }
 
     eventListenerForStartDate(selectedDate) {
+
         if (moment(selectedDate).isValid()) {
-            this.setState({
+            this.setState(prevState => ({
                 parameters: {
-                    startDate: selectedDate
+                    startDate: moment(selectedDate).format('YYYY-MM-DD'),
+                    endDate: prevState.parameters.endDate
                 }
-            });
+            }));
         }
     }
 
     eventListenerForEndDate(selectedDate) {
+
         if (moment(selectedDate).isValid() && selectedDate.isAfter(this.state.parameters.startDate)) {
-            this.setState({
+            this.setState(prevState => ({
                 parameters: {
-                    endDate: selectedDate
+                    startDate: prevState.parameters.startDate,
+                    endDate: moment(selectedDate).format('YYYY-MM-DD')
                 }
-            });
+            }));
         }
     }
 
