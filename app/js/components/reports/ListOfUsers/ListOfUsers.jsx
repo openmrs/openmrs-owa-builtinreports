@@ -45,10 +45,6 @@ class ListOfUsers extends Component {
 
                 <GroupByDateChart reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} groupBy='month' />
-
-                <BasicXYChart reportUUID={this.getReportUUID()} groupBy='week'
-                    reportParameters={this.state.parameters}
-                    X_label='username' Y_label='date_created' />
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
+import GroupByDateChart from '../common/GroupByDateChart';
 import InputBoxNOP from './InputBoxNOP';
 import moment from 'moment';
 
@@ -56,12 +57,15 @@ class NumberOfPatients extends Component {
         return (
             <div>
                 <ReportTitle heading="Number of Patients" />
-                <InputBoxNOP stdlistener={this.eventListenerForStartDate} 
-                          etdlistener={this.eventListenerForEndDate} 
-                          initStD={this.state.parameters.startDate}
-                          initEtD={this.state.parameters.endDate}/>
-                <ReportAsTableView reportUUID={this.getReportUUID()} 
-                                   reportParameters={this.state.parameters}/>
+                <InputBoxNOP stdlistener={this.eventListenerForStartDate}
+                    etdlistener={this.eventListenerForEndDate}
+                    initStD={this.state.parameters.startDate}
+                    initEtD={this.state.parameters.endDate} />
+                <ReportAsTableView reportUUID={this.getReportUUID()}
+                    reportParameters={this.state.parameters} />
+
+                <GroupByDateChart reportUUID={this.getReportUUID()}
+                    reportParameters={this.state.parameters} groupBy='month' />
             </div>
         );
     }

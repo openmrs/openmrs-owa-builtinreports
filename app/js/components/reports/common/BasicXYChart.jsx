@@ -48,7 +48,6 @@ class BasicXYChart extends Component {
         this.getChartData(data);
     }
 
-
     getChartData(report) {
         var result = {};
         var y_type = 'number';
@@ -79,11 +78,11 @@ class BasicXYChart extends Component {
         var config = {
             type: 'line',
             data: {
-                xLabels: Object.keys(result),
-                yLabels: Object.values(result),
+                xLabels: Object.keys(result).slice(0, this.props.limit),
+                yLabels: Object.values(result).slice(0, this.props.limit),
                 datasets: [{
                     label: this.state.report.definition.name,
-                    data: Object.values(result),
+                    data: Object.values(result).slice(0, this.props.limit),
                     backgroundColor: 'rgba(154, 208, 245, 0.5)',
                     borderWidth: 1,
                     pointStyle: 'circle',
@@ -97,19 +96,16 @@ class BasicXYChart extends Component {
             },
             options: {
                 scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: this.props.X_label
-                        }
-                    }],
                     yAxes: [{
                         position: 'left',
                         display: true,
                         scaleLabel: {
                             display: true,
                             labelString: this.props.Y_label
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            min: 0
                         }
                     }]
                 }
@@ -118,6 +114,8 @@ class BasicXYChart extends Component {
 
         if (y_type == 'category') {
             config.options.scales.yAxes[0]['type'] = 'category';
+        } else {
+            config.options.scales.yAxes[0]['beginAtZero'] = 'true';
         }
         var myChart = new Chart(ctx, config);
     }
@@ -127,8 +125,10 @@ class BasicXYChart extends Component {
         return (
             <div>
                 {this.state.report.uuid != 'undefined' && this.state.reportRowData.length > 0 ? (
+                    <div style={{ border: '1px solid black' }}>
 
-                    <canvas ref="basicXYChart" width="100%" height="50%" style={{ border: '1px solid black' }}></canvas>
+                        <canvas ref="basicXYChart" width="100%" height="30%" ></canvas>
+                    </div>
                 ) : (
                         <DataNotFound componentName="Chart" />
                     )}

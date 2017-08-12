@@ -53,6 +53,7 @@ class ListOfDiagnosis extends Component {
         }
     }
 
+
     render() {
         return (
             <div>
@@ -68,7 +69,7 @@ class ListOfDiagnosis extends Component {
 
                 <BasicXYChart reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters}
-                    X_label='name' Y_label='count' />
+                    X_label='name' Y_label='count' limit={10}/>
             </div>
         );
     }
