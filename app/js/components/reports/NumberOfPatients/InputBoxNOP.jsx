@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import '../ListOfUsers/InputBox.css';
 import Datetime from 'react-datetime';
 import moment from 'moment';
-import './InputBox.css'
+import './InputBoxNOP.css'
 
 /**
  * This component will render the input div which appear at the top of the page
@@ -10,7 +9,7 @@ import './InputBox.css'
  * @input: StartDate, EndDate
  * @desc: Date range can be selected for the user 
  */
-class InputBox extends Component {
+class InputBoxNOP extends Component {
 
     constructor() {
         super();
@@ -24,16 +23,14 @@ class InputBox extends Component {
     render() {
         return (
             <div className="inputBoxWrapper">
-                <label className="textLabel">Patients registered between: </label>
-                <div className="toggleContainer">
+                <div className="innerWrapper">
+                    <label className="textLabel">Patients registered between: </label>
                     <Datetime className="stDate" dateFormat="YYYY-MM-DD" closeOnSelect="true" onChange={this.props.stdlistener}
-                        isValidDate={this.valid} defaultValue={this.props.initStD}/>
-                </div>
+                        isValidDate={this.valid} defaultValue={this.props.initStD} />
 
-                <label className="textLabel"> And </label>
-                <div className="toggleContainer">
+                    <label className="textLabel"> and </label>
                     <Datetime className="edDate" dateFormat="YYYY-MM-DD" closeOnSelect="true" onChange={this.props.etdlistener}
-                        isValidDate={this.valid} defaultValue={this.props.initEtD}/>
+                        isValidDate={this.valid} defaultValue={this.props.initEtD} />
                 </div>
             </div>
 
@@ -42,4 +39,4 @@ class InputBox extends Component {
 }
 
 
-export default InputBox;
+export default InputBoxNOP;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
-import InputBox from './InputBox';
+import InputBoxLOP from './InputBoxLOP';
 import moment from 'moment';
 
 /**
@@ -40,7 +40,7 @@ class ListOfNewPatients extends Component {
             <div>
 
                 <ReportTitle heading="List of New Patient Registrations" />
-                <InputBox listener={this.eventListenerForParameter} initDateTime={this.state.parameters.startDate}/>
+                <InputBoxLOP listener={this.eventListenerForParameter} initDateTime={this.state.parameters.startDate}/>
                 <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />
             </div>

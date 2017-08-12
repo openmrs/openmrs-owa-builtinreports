@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
-import InputBox from './InputBox';
+import InputBoxNOP from './InputBoxNOP';
 import moment from 'moment';
 
 /**
@@ -56,7 +56,7 @@ class NumberOfPatients extends Component {
         return (
             <div>
                 <ReportTitle heading="Number of Patients" />
-                <InputBox stdlistener={this.eventListenerForStartDate} 
+                <InputBoxNOP stdlistener={this.eventListenerForStartDate} 
                           etdlistener={this.eventListenerForEndDate} 
                           initStD={this.state.parameters.startDate}
                           initEtD={this.state.parameters.endDate}/>

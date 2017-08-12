@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
-import InputBox from '../ListOfUsers/InputBox';
+import InputBox from '../ListOfUsers/ListOfUsersInputBox';
 /**
  * Display the result of List of providers report
  */

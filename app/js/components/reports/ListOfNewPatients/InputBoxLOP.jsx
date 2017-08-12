@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import '../ListOfUsers/InputBox.css';
 import Datetime from 'react-datetime';
 import moment from 'moment';
-import './InputBox.css'
+import './InputBoxLOP.css'
 
 /**
  * This component will render the input div which appear at the top of the page
@@ -10,7 +9,7 @@ import './InputBox.css'
  * @input: StartDate
  * @desc: Start Date to show the registered patients in the system
  */
-class InputBox extends Component {
+class InputBoxLOP extends Component {
 
     constructor() {
         super();
@@ -24,10 +23,12 @@ class InputBox extends Component {
     render() {
         return (
             <div className="inputBoxWrapper">
-                <label className="textLabel">Show patients registered since: </label>
-                <div className="toggleContainer">
-                    <Datetime dateFormat="YYYY-MM-DD" closeOnSelect='true' onChange={this.props.listener}
-                        isValidDate={this.valid} defaultValue={this.props.initDateTime}/>
+                <div className="innerWrapper">
+                    <label className="textLabel">Show patients registered since: </label>
+                    <div className="toggleContainer">
+                        <Datetime dateFormat="YYYY-MM-DD" closeOnSelect='true' onChange={this.props.listener}
+                            isValidDate={this.valid} defaultValue={this.props.initDateTime} />
+                    </div>
                 </div>
             </div>
 
@@ -36,4 +37,4 @@ class InputBox extends Component {
 }
 
 
-export default InputBox;
+export default InputBoxLOP;

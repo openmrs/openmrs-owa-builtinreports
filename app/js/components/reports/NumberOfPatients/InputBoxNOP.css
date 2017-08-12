@@ -211,3 +211,23 @@ td.rdtYear:hover {
   font-size: 1.2em;
   margin-top: 37px;
 }
+
+.inputBoxWrapper {
+    width: 100%;
+    background-color: #edecec;
+    text-align: right;
+}
+
+.innerWrapper {
+    display: inline-flex;
+    margin-right:13px;
+}
+
+.textLabel {
+    padding-top: 8px;
+    padding-left: 5px;
+}
+
+.toggleContainer {
+    padding: 3px;
+}

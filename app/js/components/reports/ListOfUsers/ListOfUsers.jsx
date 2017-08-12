@@ -3,7 +3,7 @@ import ReportAsTableView from '../common/ReportAsTableView';
 import GroupByDateChart from '../common/GroupByDateChart';
 import BasicXYChart from '../common/BasicXYChart';
 import ReportTitle from '../common/ReportTitle';
-import InputBox from './InputBox';
+import ListOfUsersInputBox from './ListOfUsersInputBox';
 
 /**
  * Display the result of List of Users report
@@ -39,7 +39,7 @@ class ListOfUsers extends Component {
         return (
             <div>
                 <ReportTitle heading="List of Users" />
-                <InputBox listener={this.eventListenerForParameter}/>
+                <ListOfUsersInputBox listener={this.eventListenerForParameter}/>
                 <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />
 

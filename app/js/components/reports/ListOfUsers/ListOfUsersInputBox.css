@@ -55,16 +55,19 @@ input:checked + .slider:before {
 
 .inputBoxWrapper {
     width: 100%;
-    display: inline-flex;
     background-color: #edecec;
+    text-align: right;
+}
+
+.innerWrapper {
+    display: inline-flex;
 }
 
 .textLabel {
-    padding-top: 7px;
-    margin-left: auto;
+    padding-top: 8px;
+    margin-left:auto; margin-right:5px;
 }
 
-.toggleContainer {
+.toggleContainerLOU {
     padding: 3px;
-    margin-right: 13px;
 }
