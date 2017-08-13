@@ -39,11 +39,12 @@ class ReportAsTableView extends Component {
 
         if(this.props.fetchData != null){
             //Test Path
-            this.props.fetchData
-            .then((response) => {
-                console.log('>>>>>'+JSON.stringify(response.body));
-                this.resolveResponse(response.body);
-            });
+            this.resolveResponse(this.props.fetchData.body);
+            // this.props.fetchData
+            // .then((response) => {
+            //     console.log('>>>>>'+JSON.stringify(response.body));
+            //     this.resolveResponse(this.props.fetchData.body);
+            // });
         }else{
             new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.props.reportUUID, params)
             .then((response) => {
@@ -70,9 +71,7 @@ class ReportAsTableView extends Component {
 
         //format a date value if found any in the table
         Object.keys(row).forEach(function (key, index) {
-            if (row[key] != null && row[key] != 'undefined' && isNaN(row[key]) && moment(row[key]).isValid()) {
-                row[key] = moment(row[key]).format("YYYY-MM-DD HH:mm:ss");
-            }else if(row[key] == null) {
+             if(row[key] == null) {
                 row[key] = "";
             }
         });
