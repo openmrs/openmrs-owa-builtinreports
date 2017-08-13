@@ -32,6 +32,7 @@
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.24.1",
+    "http-response-object": "^2.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "on-build-webpack": "^0.1.0",

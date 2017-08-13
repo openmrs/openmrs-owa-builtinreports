@@ -36,10 +36,20 @@ class ReportAsTableView extends Component {
     }
 
     init(params) {
-        new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.props.reportUUID, params)
+
+        if(this.props.fetchData != null){
+            //Test Path
+            this.props.fetchData
+            .then((response) => {
+                console.log('>>>>>'+JSON.stringify(response.body));
+                this.resolveResponse(response.body);
+            });
+        }else{
+            new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.props.reportUUID, params)
             .then((response) => {
                 this.resolveResponse(response);
             });
+        }
     }
 
     resolveResponse(data) {
@@ -62,6 +72,8 @@ class ReportAsTableView extends Component {
         Object.keys(row).forEach(function (key, index) {
             if (row[key] != null && row[key] != 'undefined' && isNaN(row[key]) && moment(row[key]).isValid()) {
                 row[key] = moment(row[key]).format("YYYY-MM-DD HH:mm:ss");
+            }else if(row[key] == null) {
+                row[key] = "";
             }
         });
         return row;
@@ -72,7 +84,9 @@ class ReportAsTableView extends Component {
         return (
             <div style={{ border: '1px solid black' }}>
 
+                {console.log('rendering the table component>>>>>>>>>>>>>>>')}
                 {this.getColumns().length > 0 ? (
+                    
                     <ReactDataGrid
                         columns={this.getColumns()}
                         rowGetter={this.rowGetter}

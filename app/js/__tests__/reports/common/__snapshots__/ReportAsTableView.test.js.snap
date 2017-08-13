@@ -1,21 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ReportAsTableView renders correctly  renders correctly 1`] = `
-<div>
-  <h1>
-    
-  </h1>
+exports[`<ReportAsTableView />  renders correctly with success data received from server 1`] = `
+<div
+  style={
+    Object {
+      "border": "1px solid black",
+    }
+  }
+>
   <div
-    className="table-container"
+    className="NotFoundWrapper"
   >
-    <table
-      className="reportTable"
+    <div
+      className="attentionSign"
     >
-      <thead>
-        <tr />
-      </thead>
-      <tbody />
-    </table>
+      <img
+        src="./warning.png"
+        width="300"
+      />
+    </div>
+    <div>
+      No Data found 
+      <span>
+        for 
+        Report Table
+      </span>
+    </div>
   </div>
 </div>
 `;
