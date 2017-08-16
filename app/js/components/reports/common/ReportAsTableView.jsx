@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ApiHelper } from '../../../helpers/apiHelper';
 import * as ReportConstants from '../../../helpers/ReportConstants';
+import { CommonReportUtil } from '../../../helpers/CommonReportUtil';
 import ReactDataGrid from 'react-data-grid';
 import DataNotFound from './DataNotFound';
 import moment from 'moment';
@@ -28,11 +29,16 @@ class ReportAsTableView extends Component {
     }
 
     componentDidMount() {
-        this.init(this.props.reportParameters);
+        if(new CommonReportUtil().validateReportParams(this.props.reportParameters)){
+            this.init(this.props.reportParameters);
+        }
+        
     }
 
     componentWillReceiveProps(nextProps) {
-        this.init(nextProps.reportParameters);
+        if(new CommonReportUtil().validateReportParams(nextProps.reportParameters)){
+            this.init(nextProps.reportParameters);
+        }
     }
 
     init(params) {
@@ -40,11 +46,6 @@ class ReportAsTableView extends Component {
         if(this.props.fetchData != null){
             //Test Path
             this.resolveResponse(this.props.fetchData.body);
-            // this.props.fetchData
-            // .then((response) => {
-            //     console.log('>>>>>'+JSON.stringify(response.body));
-            //     this.resolveResponse(this.props.fetchData.body);
-            // });
         }else{
             new ApiHelper().post(ReportConstants.REPORT_REQUEST + this.props.reportUUID, params)
             .then((response) => {
@@ -83,7 +84,6 @@ class ReportAsTableView extends Component {
         return (
             <div style={{ border: '1px solid black' }}>
 
-                {console.log('rendering the table component>>>>>>>>>>>>>>>')}
                 {this.getColumns().length > 0 ? (
                     
                     <ReactDataGrid

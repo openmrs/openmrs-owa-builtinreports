@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Crete+Round|Yantramanav');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 
 .react-grid-HeaderCell{
-      background-color: #ffe6aa;
-      font-family: 'Yantramanav', sans-serif;
+      background-color: #ff6666;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
       text-align: center;
 }
 

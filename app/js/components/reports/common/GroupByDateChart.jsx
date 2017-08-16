@@ -2,6 +2,7 @@ import Chart from 'chart.js';
 import React, { Component } from 'react';
 import { ApiHelper } from '../../../helpers/apiHelper';
 import * as ReportConstants from '../../../helpers/ReportConstants';
+import { CommonReportUtil } from '../../../helpers/CommonReportUtil';
 import DataNotFound from './DataNotFound';
 import moment from 'moment';
 
@@ -26,11 +27,15 @@ class GroupByDateChart extends Component {
     }
 
     componentDidMount() {
-        this.init(this.props.reportParameters);
+        if(new CommonReportUtil().validateReportParams(this.props.reportParameters)){
+            this.init(this.props.reportParameters);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
-        this.init(nextProps.reportParameters);
+        if(new CommonReportUtil().validateReportParams(nextProps.reportParameters)){
+            this.init(nextProps.reportParameters);
+        }
     }
 
 
@@ -51,6 +56,7 @@ class GroupByDateChart extends Component {
 
     getChartData(report) {
         var result = {};
+        console.log(report);
 
         if (report.uuid != 'undefined') {
 
@@ -67,6 +73,7 @@ class GroupByDateChart extends Component {
             });
         }
 
+        if( !this.refs.groupByDateChart ) return;
         var ctx = this.refs.groupByDateChart;
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -124,7 +131,7 @@ class GroupByDateChart extends Component {
         return (
             <div>
 
-                {this.state.report.uuid != 'undefined' && this.state.reportRowData.length > 0 ? (
+                {this.state.reportRowData.length != 'undefined' && this.state.reportRowData.length > 0 ? (
 
                     <canvas ref="groupByDateChart" width="100%" height="30%" style={{ border: '1px solid black' }}></canvas>
                 ) : (

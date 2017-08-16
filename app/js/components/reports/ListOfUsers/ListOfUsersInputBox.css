@@ -32,11 +32,11 @@
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #81a726;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #81a726;
 }
 
 input:checked + .slider:before {
@@ -64,6 +64,9 @@ input:checked + .slider:before {
 }
 
 .textLabel {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-size: 15px;
     padding-top: 8px;
     margin-left:auto; margin-right:5px;
 }

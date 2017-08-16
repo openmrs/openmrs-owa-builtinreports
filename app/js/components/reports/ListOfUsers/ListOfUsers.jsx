@@ -90,8 +90,7 @@ class ListOfUsers extends Component {
                 <ListOfUsersInputBox listener={this.eventListenerForParameter} />
 
                 <ReportAsTableView reportUUID={this.getReportUUID()}
-                    reportParameters={this.state.parameters}
-                    fetchData={fakeRequestLibrary('www.example.com', {}, true, this.FAKE_RESPONSE())} />
+                    reportParameters={this.state.parameters} />
 
                 <GroupByDateChart reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} groupBy='month' />

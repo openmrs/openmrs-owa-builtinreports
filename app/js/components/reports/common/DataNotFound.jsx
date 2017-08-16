@@ -8,7 +8,7 @@ class DataNotFound extends Component {
         return (
             <div className="NotFoundWrapper">
                 <div className="attentionSign">
-                    <img src="./warning.png" width="300"/>
+                    <img src="img/warning.png" width="80"/>
                 </div>
                 <div>
                     No Data found { this.props.componentName != null && <span>for {this.props.componentName}</span>}

@@ -19,82 +19,106 @@ class ReportNavComponent extends Component {
                         <ul>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-user float-left" ></span>
-                                    <NavLink activeClassName="active" to="/ListOfUsers">
-                                        List of Users
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-user float-left" ></span>
+                                        <div>
+                                            <NavLink activeClassName="active" to="/ListOfUsers">
+                                                List of Users
                                     </NavLink>
+                                        </div>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-user float-left" ></span>
-                                    <NavLink to="/ListOfProviders">
-                                        List of Providers
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-user float-left" ></span>
+                                        <NavLink to="/ListOfProviders">
+                                            List of Providers
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-exclamation-sign float-left" ></span>
-                                    <NavLink to="/ListOfDiagnosis">
-                                        List of Diagnosis
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-exclamation-sign float-left" ></span>
+                                        <NavLink to="/ListOfDiagnosis">
+                                            List of Diagnosis
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-plus-sign float-left" ></span>
-                                    <NavLink to="/ListOfNewPatients">
-                                        List of New Patient Registrations
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-plus-sign float-left" ></span>
+                                        <div>
+                                            <NavLink to="/ListOfNewPatients">
+                                                List of New Patient Registrations
                                     </NavLink>
+                                        </div>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-copy float-left" ></span>
-                                    <NavLink to="/NumberOfAdmissions">
-                                        Number of Admissions
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-copy float-left" ></span>
+                                        <NavLink to="/NumberOfAdmissions">
+                                            Number of Admissions
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-paste float-left" ></span>
-                                    <NavLink to="/NumberOfDischarges">
-                                        Number of Discharges
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-paste float-left" ></span>
+                                        <NavLink to="/NumberOfDischarges">
+                                            Number of Discharges
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-transfer float-left" ></span>
-                                    <NavLink to="/NumberOfTransfers">
-                                        Number of Transfers
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-transfer float-left" ></span>
+                                        <NavLink to="/NumberOfTransfers">
+                                            Number of Transfers
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-user float-left" ></span>
-                                    <NavLink to="/NumberOfPatients">
-                                        Number of Patient Registrations
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-user float-left" ></span>
+                                        <NavLink to="/NumberOfPatients">
+                                            Number of Patient Registrations
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-file float-left" ></span>
-                                    <NavLink to="/NumberOfVisitNotes">
-                                        Number of Visit Notes
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-file float-left" ></span>
+                                        <NavLink to="/NumberOfVisitNotes">
+                                            Number of Visit Notes
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
                             <li>
                                 <span className="menuItem">
-                                    <span className="glyphicon glyphicon-user float-left" ></span>
-                                    <NavLink to="/NumberOfVisits">
-                                        Number of Visits
+                                    <div className="menuItemContainer">
+                                        <span className="glyphicon glyphicon-user float-left" ></span>
+                                        <NavLink to="/NumberOfVisits">
+                                            Number of Visits
                                     </NavLink>
+                                    </div>
                                 </span>
                             </li>
 

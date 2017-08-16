@@ -26,7 +26,7 @@ class InputBoxLOP extends Component {
                 <div className="innerWrapper">
                     <label className="textLabel">Show patients registered since: </label>
                     <div className="toggleContainer">
-                        <Datetime dateFormat="YYYY-MM-DD" closeOnSelect='true' onChange={this.props.listener}
+                        <Datetime dateFormat="YYYY-MM-DD" closeOnSelect={true} onChange={this.props.listener}
                             isValidDate={this.valid} defaultValue={this.props.initDateTime} />
                     </div>
                 </div>

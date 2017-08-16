@@ -1,8 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import sinon from 'sinon';
+import ReactDataGrid from 'react-data-grid';
 import { fakeRequestLibrary } from '../../../__mocks__/fakeRequestLibrary';
 import ReportAsTableView from '../../../components/reports/common/ReportAsTableView';
+
+jest.mock('react-data-grid', () => 'ReactDataGrid');
 
 const FAKE_RESPONSE = {
     dataSets: [
@@ -60,13 +63,7 @@ describe('<ReportAsTableView /> ', () => {
                 fetchData={fakeRequestLibrary('www.openmrs-fake-server.org', {}, true, FAKE_RESPONSE)} />
         );
 
-        // var component = shallow(<ReportAsTableView fetchData={fakeRequestLibrary('www.openmrs-fake-server.org', {}, true, FAKE_RESPONSE)}/>);
-        // component.setProps({
-        //     reportUUID: "e451ae04-4881-11e7-a919-92ebcb67fe33",
-        //     reportParameters: params,
-        //     fetchData: fakeRequestLibrary('www.openmrs-fake-server.org', {}, true, FAKE_RESPONSE)
-        // });
-
+        console.log(JSON.stringify(rendered));
         expect(rendered.toJSON()).toMatchSnapshot();
 });
 });

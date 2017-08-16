@@ -51,6 +51,7 @@ class LocationInput extends Component {
                 <div className="innerWrapper">
                     <label className="textLabel">Location: </label>
                     <select className="form-control" onChange={this.props.locationListener}>
+                        <option value=''>Select Location</option>
                         {this.makeItem()}
                     </select>
                 </div>
