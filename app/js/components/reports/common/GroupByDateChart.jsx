@@ -82,9 +82,8 @@ class GroupByDateChart extends Component {
                 datasets: [{
                     label: this.state.report.definition.name,
                     data: Object.values(result),
-                    backgroundColor: 'rgba(165, 223, 223, 0.5)',
                     borderWidth: 1,
-                    pointBackgroundColor: 'rgb(77, 172, 237)',
+                    backgroundColor: '#1cad8a',
                     pointRadius: 10,
                     pointHoverRadius: 14,
                     lineTension: 0,

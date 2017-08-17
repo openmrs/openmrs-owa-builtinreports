@@ -34,16 +34,17 @@
 
 .menuItem {
 	color: white;
-	text-decoration: none;
 	font-size: 14px;
 	line-height: 30px;
 	display: block;
-	padding: 0 6px;
+	padding: 3px 6px;
     cursor: pointer;
     -moz-transition: all 0.15s ease-in;
     -o-transition: all 0.15s ease-in;
     -webkit-transition: all 0.15s ease-in;
     transition: all 0.15s ease-in;
+    border-bottom: 1px solid white;
+    border-color: rgba(255,255,255,0.25);
 }
 
 .menuItem:hover {

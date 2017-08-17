@@ -89,7 +89,8 @@ class ReportAsTableView extends Component {
                     <ReactDataGrid
                         columns={this.getColumns()}
                         rowGetter={this.rowGetter}
-                        rowsCount={this.state.reportRowData.length} />
+                        rowsCount={this.state.reportRowData.length}
+                        minHeight={280} />
                 ) : (
                     <DataNotFound componentName="Report Table"/>
                 )}
