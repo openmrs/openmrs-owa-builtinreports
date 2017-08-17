@@ -9,6 +9,7 @@
 .reportNavBar {
     width: 20%;
     position: relative;
+    border-right: 1px solid;
 }
 
 .reportContent {

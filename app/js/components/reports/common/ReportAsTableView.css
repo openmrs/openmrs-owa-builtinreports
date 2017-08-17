@@ -11,3 +11,8 @@
 .react-grid-Cell{
       text-align: center;
 }
+
+.TableDivHolder {
+      border-top: 1px solid;
+      overflow: hidden;
+}

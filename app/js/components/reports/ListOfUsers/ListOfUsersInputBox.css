@@ -72,5 +72,5 @@ input:checked + .slider:before {
 }
 
 .toggleContainerLOU {
-    padding: 3px;
+    padding-top: 3px;
 }

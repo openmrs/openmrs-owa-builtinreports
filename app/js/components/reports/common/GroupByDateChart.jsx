@@ -128,15 +128,14 @@ class GroupByDateChart extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ 'border-top': '1px solid', overflow: 'hidden' }}>
 
                 {this.state.reportRowData.length != 'undefined' && this.state.reportRowData.length > 0 ? (
 
-                    <canvas ref="groupByDateChart" width="100%" height="30%" style={{ border: '1px solid black' }}></canvas>
+                    <canvas ref="groupByDateChart" width="100%" height="30%" ></canvas>
                 ) : (
                         <DataNotFound componentName="Chart" />
                     )}
-
 
             </div>
         );

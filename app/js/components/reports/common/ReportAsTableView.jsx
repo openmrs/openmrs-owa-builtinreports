@@ -82,7 +82,7 @@ class ReportAsTableView extends Component {
 
     render() {
         return (
-            <div style={{ border: '1px solid black' }}>
+            <div className="TableDivHolder">
 
                 {this.getColumns().length > 0 ? (
                     
