@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReportAsTableView />  component displays as expected 1`] = `
+<div
+  className="TableDivHolder"
+>
+  <ReactDataGrid
+    columns={
+      Array [
+        Object {
+          "key": "username",
+          "name": "username",
+          "resizable": true,
+        },
+        Object {
+          "key": "date_created",
+          "name": "date_created",
+          "resizable": true,
+        },
+      ]
+    }
+    minHeight={280}
+    rowGetter={[Function]}
+    rowsCount={5}
+  />
+</div>
+`;

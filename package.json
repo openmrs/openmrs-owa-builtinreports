@@ -86,7 +86,7 @@
     "roots": [
       "./app/js/__tests__"
     ],
-    "testRegex": ".*.test.js",
+    "testRegex": ".*.test.js$",
     "verbose": true
   }
 }

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BasicXYChart />  component displays as expected 1`] = `
+<div
+  style={
+    Object {
+      "border-top": "1px solid",
+      "overflow": "hidden",
+    }
+  }
+>
+  <canvas
+    height="30%"
+    width="100%"
+  />
+</div>
+`;
