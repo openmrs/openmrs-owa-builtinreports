@@ -17,6 +17,11 @@ exports[`<ReportAsTableView />  component displays as expected 1`] = `
           "name": "date_created",
           "resizable": true,
         },
+        Object {
+          "key": "count",
+          "name": "count",
+          "resizable": true,
+        },
       ]
     }
     minHeight={280}

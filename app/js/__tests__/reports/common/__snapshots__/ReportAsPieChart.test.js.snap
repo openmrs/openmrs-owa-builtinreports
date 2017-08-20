@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReportAsPieChart />  component displays as expected 1`] = `
+<div
+  style={
+    Object {
+      "borderTop": "1px solid",
+      "overflow": "hidden",
+    }
+  }
+>
+  <canvas
+    height="33%"
+    width="100%"
+  />
+</div>
+`;

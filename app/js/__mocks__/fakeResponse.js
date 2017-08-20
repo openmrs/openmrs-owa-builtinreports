@@ -12,29 +12,38 @@ export const FAKE_RESPONSE = {
                     {
                         name: "date_created",
                         label: "date_created"
+                    },
+                    {
+                        name: "count",
+                        label: "count"
                     }
                 ]
             },
             rows: [
                 {
                     date_created: "2010-04-26T13:25:00.000+0530",
-                    username: "daemon"
+                    username: "daemon",
+                    count: 2
                 },
                 {
                     date_created: "2017-06-08T21:37:18.000+0530",
-                    username: "clerk"
+                    username: "clerk",
+                    count: 13
                 },
                 {
                     date_created: "2017-07-08T21:37:18.000+0530",
-                    username: "nurse"
+                    username: "nurse",
+                    count: 5
                 },
                 {
                     date_created: "2017-07-08T21:37:19.000+0530",
-                    username: "doctor"
+                    username: "doctor",
+                    count: 1
                 },
                 {
                     date_created: "2017-07-08T21:37:18.000+0530",
-                    username: "sysadmin"
+                    username: "sysadmin",
+                    count: 4
                 }
             ]
         }

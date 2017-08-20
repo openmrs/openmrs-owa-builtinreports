@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import BasicXYChart from '../common/BasicXYChart';
+import ReportAsPieChart from '../common/ReportAsPieChart';
 import ReportTitle from '../common/ReportTitle';
 import InputBoxLOD from './InputBoxLOD';
 import moment from 'moment';
@@ -66,6 +67,10 @@ class ListOfDiagnosis extends Component {
 
                 <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />
+
+                <ReportAsPieChart reportUUID={this.getReportUUID()}
+                    reportParameters={this.state.parameters} 
+                    labels='name' qty='count' limit={10}/>
 
                 <BasicXYChart reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters}
