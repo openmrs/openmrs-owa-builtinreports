@@ -21,8 +21,8 @@ class LocationInput extends Component {
     }
 
     makeItem() {
-        return this.state.locations.map((e) => {
-            return <option value={e.uuid}>{e.display}</option>
+        return this.state.locations.map((e, i) => {
+            return <option value={e.uuid} key={i}>{e.display}</option>
         })
     }
     

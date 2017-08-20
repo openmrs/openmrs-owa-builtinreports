@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Datetime from 'react-datetime';
 import moment from 'moment';
-import './InputBoxNOVN.css'
+import './DateRangeInput.css';
 
 /**
  * This component will render the input div which appear at the top of the page
@@ -9,7 +9,7 @@ import './InputBoxNOVN.css'
  * @input: StartDate, EndDate
  * @desc: Date range can be selected for the user 
  */
-class InputBoxNOVN extends Component {
+class DateRangeInput extends Component {
 
     constructor() {
         super();
@@ -24,7 +24,7 @@ class InputBoxNOVN extends Component {
         return (
             <div className="inputBoxWrapper">
                 <div className="innerWrapper">
-                    <label className="textLabel">Visit notes created between: </label>
+                    <label className="textLabel">{this.props.label} between: </label>
                     <Datetime className="stDate" dateFormat="YYYY-MM-DD" closeOnSelect={true} onChange={this.props.stdlistener}
                         isValidDate={this.valid} defaultValue={this.props.initStD} />
 
@@ -39,4 +39,4 @@ class InputBoxNOVN extends Component {
 }
 
 
-export default InputBoxNOVN;
+export default DateRangeInput;

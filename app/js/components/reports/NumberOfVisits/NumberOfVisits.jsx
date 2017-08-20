@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
-import InputBoxNOV from './InputBoxNOV';
+import DateRangeInput from '../common/DateRangeInput';
 import moment from 'moment';
 
 /**
@@ -57,11 +57,11 @@ class NumberOfVisits extends Component {
             <div>
                 <ReportTitle heading="Number of Visits" />
 
-                <InputBoxNOV stdlistener={this.eventListenerForStartDate}
+                <DateRangeInput label="Visits created"
+                    stdlistener={this.eventListenerForStartDate}
                     etdlistener={this.eventListenerForEndDate}
                     initStD={this.state.parameters.startDate}
                     initEtD={this.state.parameters.endDate} />
-
 
                 <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />

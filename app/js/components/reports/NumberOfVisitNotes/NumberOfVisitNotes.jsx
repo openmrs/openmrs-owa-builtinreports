@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
-import InputBoxNOVN from './InputBoxNOVN';
+import DateRangeInput from '../common/DateRangeInput';
 import moment from 'moment';
 
 /**
@@ -57,7 +57,8 @@ class NumberOfVisitNotes extends Component {
             <div>
                 <ReportTitle heading="Number of Visit Notes" />
 
-                <InputBoxNOVN stdlistener={this.eventListenerForStartDate} 
+                <DateRangeInput label="Visit notes created"
+                          stdlistener={this.eventListenerForStartDate} 
                           etdlistener={this.eventListenerForEndDate} 
                           initStD={this.state.parameters.startDate}
                           initEtD={this.state.parameters.endDate}/>

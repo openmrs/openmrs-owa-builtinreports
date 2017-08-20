@@ -11,9 +11,7 @@ class NumberOfTransfers extends Component {
     constructor() {
         super();
         this.state = {
-            parameters: {
-                location: "8d6c993e-c2cc-11de-8d13-0010c6dffd0f"
-            }
+            parameters: null
         };
         this.getReportUUID = this.getReportUUID.bind(this);
         this.handleLocationSelector = this.handleLocationSelector.bind(this);
@@ -24,7 +22,11 @@ class NumberOfTransfers extends Component {
     }
 
     handleLocationSelector(event) {
-        this.setState({ location: event.target.value });
+        this.setState({
+            parameters: {
+                location: event.target.value
+            }
+        });
     }
 
     render() {
@@ -33,8 +35,8 @@ class NumberOfTransfers extends Component {
                 <ReportTitle heading="Number of Transfers" />
                 <LocationInput locationListener={this.handleLocationSelector} />
 
-                <ReportAsTableView reportUUID={this.getReportUUID()} 
-                                   reportParameters={this.state.parameters}/>
+                <ReportAsTableView reportUUID={this.getReportUUID()}
+                    reportParameters={this.state.parameters} />
             </div>
         );
     }

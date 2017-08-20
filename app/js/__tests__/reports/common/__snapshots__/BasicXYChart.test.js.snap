@@ -4,7 +4,7 @@ exports[`<BasicXYChart />  component displays as expected 1`] = `
 <div
   style={
     Object {
-      "border-top": "1px solid",
+      "borderTop": "1px solid",
       "overflow": "hidden",
     }
   }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import GroupByDateChart from '../common/GroupByDateChart';
-import BasicXYChart from '../common/BasicXYChart';
+import BasicXYChart from '../common/BasicXYChart';ReportAsPieChart
+import ReportAsPieChart from '../common/ReportAsPieChart';
 import ReportTitle from '../common/ReportTitle';
 import ListOfUsersInputBox from './ListOfUsersInputBox';
 
@@ -43,6 +44,9 @@ class ListOfUsers extends Component {
 
                 <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />
+
+                    <ReportAsPieChart reportUUID={this.getReportUUID()}
+                    reportParameters={this.state.parameters} groupBy='month'/>
 
                 <GroupByDateChart reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} groupBy='month' />

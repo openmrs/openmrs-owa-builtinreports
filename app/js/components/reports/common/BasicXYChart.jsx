@@ -97,7 +97,7 @@ class BasicXYChart extends Component {
 
     render() {
         return (
-            <div style={{ 'border-top': '1px solid', overflow: 'hidden' }}>
+            <div style={{ 'borderTop': '1px solid', overflow: 'hidden' }}>
                 
                 {this.state.reportRowData.length != 'undefined' && this.state.reportRowData.length > 0 ? (
 
