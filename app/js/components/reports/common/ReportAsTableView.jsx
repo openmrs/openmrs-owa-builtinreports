@@ -72,7 +72,10 @@ class ReportAsTableView extends Component {
 
         //format a date value if found any in the table
         Object.keys(row).forEach(function (key, index) {
-             if(row[key] == null) {
+            if (row[key] != null && row[key] != 'undefined' && isNaN(row[key]) && moment(row[key], moment.ISO_8601, true).isValid()) {
+                row[key] = moment(row[key], moment.ISO_8601, true).format("YYYY-MM-DD HH:mm:ss");
+            }
+            if(row[key] == null) {
                 row[key] = "";
             }
         });
