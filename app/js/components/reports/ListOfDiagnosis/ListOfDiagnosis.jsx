@@ -70,11 +70,11 @@ class ListOfDiagnosis extends Component {
 
                 <ReportAsPieChart reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} 
-                    labels='name' qty='count' limit={10}/>
+                    labels='Diagnosis' qty='Count' limit={10}/>
 
                 <BasicXYChart reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters}
-                    X_label='name' Y_label='count' limit={10} />
+                    X_label='Diagnosis' Y_label='Count' limit={10} />
             </div>
         );
     }
