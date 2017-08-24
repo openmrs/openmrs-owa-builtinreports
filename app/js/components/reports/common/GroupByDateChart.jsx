@@ -25,6 +25,7 @@ class GroupByDateChart extends Component {
         };
         this.init = this.init.bind(this);
         this.resolveResponse = this.resolveResponse.bind(this);
+        this.getDateColumnName = this.getDateColumnName.bind(this);
     }
 
     componentDidMount() {
@@ -69,9 +70,11 @@ class GroupByDateChart extends Component {
         if (report.uuid != 'undefined') {
 
             var dataRows = report.dataSets[0].rows;
-            dataRows.forEach((e) => {
+            var columnWithDate = this.getDateColumnName(dataRows[0]);
 
-                var formattedDateTime = this.groupBySelection(e.date_created);
+            dataRows.forEach((e) => {
+                
+                var formattedDateTime = this.groupBySelection(e[columnWithDate]);
 
                 if (result[formattedDateTime] == null || result[formattedDateTime] == 'undefined') {
                     result[formattedDateTime] = 1;
@@ -82,6 +85,16 @@ class GroupByDateChart extends Component {
         }
         this.setState({ result: result });
 
+    }
+
+    getDateColumnName(object) {
+        var columnName = null;
+        Object.keys(object).forEach(function(key) {
+            if(moment(object[key], moment.ISO_8601, true).isValid()){
+                columnName = key;
+            }
+        });
+        return columnName;
     }
 
     groupBySelection(dateTime) {
