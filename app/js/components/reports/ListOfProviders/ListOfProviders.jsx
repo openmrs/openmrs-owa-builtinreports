@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
+import GroupByDateChart from '../common/GroupByDateChart';
 import InputBox from '../ListOfUsers/ListOfUsersInputBox';
 /**
  * Display the result of List of providers report
@@ -38,10 +39,13 @@ class ListOfProviders extends Component {
             <div>
                 <ReportTitle heading="List of Providers" />
 
-                <InputBox listener={this.eventListenerForParameter}/>
+                <InputBox listener={this.eventListenerForParameter} />
 
                 <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />
+
+                <GroupByDateChart reportUUID={this.getReportUUID()}
+                    reportParameters={this.state.parameters} groupBy='month' />
             </div>
         );
     }
