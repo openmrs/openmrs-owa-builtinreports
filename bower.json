@@ -1,0 +1,26 @@
+{
+  "name": "openmrs-owa-built-in-reports",
+  "description": "built-in reports for reference application",
+  "main": "",
+  "authors": [
+    "JudeNiroshan"
+  ],
+  "license": "MPL-2.0",
+  "keywords": [
+    "OpenMRS",
+    "Open",
+    "Web",
+    "App"
+  ],
+  "homepage": "https://github.com/JudeNiroshan/openmrs-owa-built-in-reports",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.7"
+  }
+}
