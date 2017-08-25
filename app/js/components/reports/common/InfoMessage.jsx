@@ -6,7 +6,7 @@ class InfoMessage extends Component {
 
     render() {
         return (
-            <div className="NotFoundWrapper">
+            <div className="InfoMessageWrapper">
                 <div className="attentionSign">
                     <img src="img/info.png" width="80"/>
                 </div>
