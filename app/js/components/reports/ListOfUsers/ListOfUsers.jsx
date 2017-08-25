@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import GroupByDateChart from '../common/GroupByDateChart';
-import BasicXYChart from '../common/BasicXYChart';
 import ReportTitle from '../common/ReportTitle';
 import ListOfUsersInputBox from './ListOfUsersInputBox';
 

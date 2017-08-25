@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
 import LocationInput from '../common/LocationInput';
+import InfoMessage from '../common/InfoMessage';
 
 /**
  * Display the result of Number of Admissions report
@@ -11,7 +12,9 @@ class NumberOfAdmissions extends Component {
     constructor() {
         super();
         this.state = {
-            parameters: null
+            parameters: {
+                location: ''
+            }
         };
         this.getReportUUID = this.getReportUUID.bind(this);
         this.handleLocationSelector = this.handleLocationSelector.bind(this);
@@ -35,8 +38,14 @@ class NumberOfAdmissions extends Component {
                 <ReportTitle heading="Number of Admissions" />
                 <LocationInput locationListener={this.handleLocationSelector} />
 
-                <ReportAsTableView reportUUID={this.getReportUUID()}
+                {this.state.parameters.location != null && this.state.parameters.location != '' ? (
+
+                    <ReportAsTableView reportUUID={this.getReportUUID()}
                     reportParameters={this.state.parameters} />
+
+                ) : (
+                        <InfoMessage componentName="location" />
+                    )}
             </div>
         );
     }
