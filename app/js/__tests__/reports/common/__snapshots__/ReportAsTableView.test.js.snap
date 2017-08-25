@@ -14,7 +14,7 @@ exports[`<ReportAsTableView />  component displays as expected 1`] = `
         },
         Object {
           "key": "date_created",
-          "name": "date_created",
+          "name": "date created",
           "resizable": true,
         },
         Object {

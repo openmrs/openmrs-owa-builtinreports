@@ -62,7 +62,12 @@ class ReportAsTableView extends Component {
 
     getColumns() {
         var columns = this.state.reportColumnNames.map(function (element) {
-            return { key: element.name, name: element.label, resizable: true };
+
+            var displayName = element.label;
+            if(displayName.indexOf('_') > -1){
+                displayName = displayName.replace(/_/g, ' ');
+            }
+            return { key: element.name, name: displayName, resizable: true };
         });
         return columns;
     }
