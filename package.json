@@ -8,15 +8,15 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "chart.js": "^2.6.0",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
     "react": "^15.4.1",
     "react-chartjs": "^0.8.0",
+    "react-data-grid": "^2.0.57",
     "react-datetime": "^2.9.0",
     "react-dom": "^15.4.1",
-    "react-router-dom": "^4.1.1",
-    "react-data-grid": "^2.0.57",
-    "chart.js": "^2.6.0"
+    "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
     "archiver": "^1.0.0",
@@ -29,6 +29,7 @@
     "browser-sync-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.1",
+    "codacy-coverage": "^2.0.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
