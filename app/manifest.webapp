@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "name": "openmrs-owa-built-in-reports",
+  "name": "Built-In Reports",
   "description": "built-in reports for reference application",
   "launch_path": "index.html",
   "icons": {
