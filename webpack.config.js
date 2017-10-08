@@ -29,7 +29,8 @@ const WebpackOnBuildPlugin = require('on-build-webpack');
 
 const nodeModulesDir = path.resolve(__dirname, '../node_modules');
 
-const THIS_APP_ID = 'openmrs-owa-built-in-reports';
+var pjson = require('./package.json');
+const THIS_APP_ID = 'openmrs-owa-built-in-reports'+ "-" + pjson.version;
 
 var plugins = [];
 const nodeModules = {};
@@ -83,6 +84,7 @@ if (env === 'production') {
 	  plugins.push(new WebpackOnBuildPlugin(function(stats){
       //create zip file
       var archiver = require('archiver');
+			
 			var output = fs.createWriteStream(THIS_APP_ID+'.zip');
 			var archive = archiver('zip');
 

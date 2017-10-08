@@ -6,11 +6,11 @@
     },
 
     "version": {
-        "name": "0.9.3",
+        "name": "0.9.4",
         "released": "2017-08-29"
     },
 
-    "files":[{"includePattern": "openmrs-owa-built-in-reports.zip", "uploadPattern": "openmrs-owa-built-in-reports.zip"}],
+    "files":[{"includePattern": "openmrs-owa-built-in-reports-0.9.4.zip", "uploadPattern": "openmrs-owa-built-in-reports-0.9.4.zip"}],
     "publish": true,
     "override": true
 }

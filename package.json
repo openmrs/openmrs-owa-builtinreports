@@ -1,6 +1,6 @@
 {
   "name": "openmrs-owa-built-in-reports",
-  "version": "0.1.0",
+  "version": "0.9.4",
   "description": "built-in reports for reference application",
   "repository": {
     "type": "git",
