@@ -15,8 +15,9 @@ import {Router, Route, hashHistory, BrowserRouter} from 'react-router-dom'
 
 import routes from './routes'
 
+var packageJson = require("../manifest.webapp");
 render((
-         <BrowserRouter basename="/openmrs/owa/openmrs-owa-built-in-reports" history={hashHistory}>
+         <BrowserRouter basename={"/openmrs/owa/openmrs-owa-built-in-reports-" + packageJson.version} history={hashHistory}>
            {routes()}
          </BrowserRouter>
        ), document.getElementById('app'));
