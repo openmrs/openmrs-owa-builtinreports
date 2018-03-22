@@ -2,7 +2,7 @@
 
 .navWrapper {
     width: 100%;
-    height: 500px;
+    height: auto;
     position: relative;
     background: #3f3d74;
     font-family: 'Quicksand', sans-serif;
