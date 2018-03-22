@@ -89,7 +89,7 @@ export class Header extends Component {
                             </a>
                             <ul className="dropdown-menu user">
                                 <li>
-                                    <a href="#">My Account</a>
+                                    <a href="/openmrs/adminui/myaccount/myAccount.page">My Account</a>
                                 </li>
                             </ul>
                         </li>
@@ -112,7 +112,7 @@ export class Header extends Component {
 
                     <NavLink to="" activeClassName="active">
                         <li>
-                            <a href="#">Logout {' '}
+                            <a href="/openmrs/appui/header/logout.action?successUrl=openmrs">Logout {' '}
                                 <span className="glyphicon glyphicon-log-out"/></a>
                         </li>
                     </NavLink>
