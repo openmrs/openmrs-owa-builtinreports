@@ -177,7 +177,10 @@ var webpackConfig = {
 	}, {
 	    test: /\.html$/,
 	    loader: 'html'
-	}],
+	}, {
+		test: /\.(json|webapp)$/,
+		loader: 'json-loader'
+  }],
   },
   resolve: {
     root: path.resolve('./src'),
