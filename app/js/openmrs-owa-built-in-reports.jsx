@@ -10,14 +10,14 @@
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
 import React from 'react';
-import {render} from 'react-dom';
-import {Router, Route, hashHistory, BrowserRouter} from 'react-router-dom'
+import { render } from 'react-dom';
+import { Router, Route, hashHistory, BrowserRouter } from 'react-router-dom';
 
-import routes from './routes'
+import routes from './routes';
 
-var packageJson = require("../manifest.webapp");
+const packageJson = require("../manifest.webapp");
 render((
-         <BrowserRouter basename={"/openmrs/owa/openmrs-owa-built-in-reports-" + packageJson.version} history={hashHistory}>
-           {routes()}
-         </BrowserRouter>
-       ), document.getElementById('app'));
+  <BrowserRouter basename={"/openmrs/owa/openmrs-owa-built-in-reports-" + packageJson.version} history={hashHistory}>
+    {routes()}
+  </BrowserRouter>
+), document.getElementById('app'));

@@ -9,46 +9,46 @@ import InfoMessage from '../common/InfoMessage';
  */
 class NumberOfDischarges extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            parameters: {
-                location: ''
-            }
-        };
-        this.getReportUUID = this.getReportUUID.bind(this);
-        this.handleLocationSelector = this.handleLocationSelector.bind(this);
-    }
+  constructor() {
+    super();
+    this.state = {
+      parameters: {
+        location: ''
+      }
+    };
+    this.getReportUUID = this.getReportUUID.bind(this);
+    this.handleLocationSelector = this.handleLocationSelector.bind(this);
+  }
 
-    getReportUUID() {
-        return "b39c5070-4881-11e7-a919-92ebcb67fe33";
-    }
+  getReportUUID() {
+    return "b39c5070-4881-11e7-a919-92ebcb67fe33";
+  }
 
-    handleLocationSelector(event) {
-        this.setState({
-            parameters: {
-                location: event.target.value
-            }
-        });
-    }
+  handleLocationSelector(event) {
+    this.setState({
+      parameters: {
+        location: event.target.value
+      }
+    });
+  }
 
-    render() {
-        return (
-            <div>
-                <ReportTitle heading="Number of Discharges" />
-                <LocationInput locationListener={this.handleLocationSelector} />
+  render() {
+    return (
+      <div>
+        <ReportTitle heading="Number of Discharges" />
+        <LocationInput locationListener={this.handleLocationSelector} />
 
-                {this.state.parameters.location != null && this.state.parameters.location != '' ? (
+        {this.state.parameters.location != null && this.state.parameters.location != '' ? (
 
-                    <ReportAsTableView reportUUID={this.getReportUUID()}
-                    reportParameters={this.state.parameters} />
+          <ReportAsTableView reportUUID={this.getReportUUID()}
+            reportParameters={this.state.parameters} />
 
-                ) : (
-                        <InfoMessage componentName="location" />
-                    )}
-            </div>
-        );
-    }
+        ) : (
+          <InfoMessage componentName="location" />
+        )}
+      </div>
+    );
+  }
 
 }
 

@@ -16,7 +16,10 @@
     "react-data-grid": "^2.0.57",
     "react-datetime": "^2.9.0",
     "react-dom": "^15.4.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^6.9.0"
   },
   "devDependencies": {
     "archiver": "^1.0.0",
@@ -47,7 +50,9 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
-    "yargs": "^4.3.1"
+    "yargs": "^4.3.1",
+    "eslint": "^3.19.0",
+    "eslint-watch": "^3.1.0"
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install",
@@ -57,7 +62,9 @@
     "build:prod": "npm run test && npm run build",
     "build:deploy": "webpack --progress --colors --mode=deploy --target=web",
     "watch": "webpack --progress --colors --watch --mode=deploy --target=web",
-    "test": "jest"
+    "test": "jest",
+    "lint": "node_modules/.bin/eslint webpack.config.* app/**",
+    "lint:watch": "npm run lint --watch"
   },
   "keywords": [
     "OpenMRS",

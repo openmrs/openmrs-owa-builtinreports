@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ApiHelper } from '../../../helpers/apiHelper';
 import * as ReportConstants from '../../../helpers/ReportConstants';
 
@@ -10,53 +10,57 @@ import * as ReportConstants from '../../../helpers/ReportConstants';
  */
 class LocationInput extends Component {
 
-     constructor(props) {
-        super();
-        this.state = {
-            locations: Array()
-        };
-        this.init = this.init.bind(this);
-        this.resolveResponse = this.resolveResponse.bind(this);
-        this.makeItem = this.makeItem.bind(this);
-    }
+  constructor(props) {
+    super();
+    this.state = {
+      locations: Array()
+    };
+    this.init = this.init.bind(this);
+    this.resolveResponse = this.resolveResponse.bind(this);
+    this.makeItem = this.makeItem.bind(this);
+  }
 
-    makeItem() {
-        return this.state.locations.map((e, i) => {
-            return <option value={e.uuid} key={i}>{e.display}</option>
-        })
-    }
-    
-    componentDidMount() {
-        this.init();
-    }
+  componentDidMount() {
+    this.init();
+  }
 
-    componentWillReceiveProps(nextProps) {
-        this.init();
-    }
+  componentWillReceiveProps(nextProps) {
+    this.init();
+  }
 
-    init() {
-        new ApiHelper().get(ReportConstants.LOCATIONS)
-            .then((response) => {
-                this.resolveResponse(response);
-            });
-    }
+  init() {
+    new ApiHelper().get(ReportConstants.LOCATIONS)
+      .then((response) => {
+        this.resolveResponse(response);
+      });
+  }
 
-    resolveResponse(data) {
-        this.setState({ locations: data.results });
-    }
+  makeItem() {
+    return this.state.locations.map((e, i) => {
+      return <option value={e.uuid} key={i}>{e.display}</option>;
+    });
+  }
 
-    render() {
-        return (
-            <div className="inputBoxWrapper">
-                <div className="innerWrapper">
-                    <label className="textLabel">Location: </label>
-                    <select className="form-control" onChange={this.props.locationListener}>
-                        <option value=''>Select Location</option>
-                        {this.makeItem()}
-                    </select>
-                </div>
-            </div>);
-    }
+  resolveResponse(data) {
+    this.setState({ locations: data.results });
+  }
+
+  render() {
+    return (
+      <div className="inputBoxWrapper">
+        <div className="innerWrapper">
+          <label className="textLabel">Location: </label>
+          <select className="form-control" onChange={this.props.locationListener}>
+            <option value="">Select Location</option>
+            {this.makeItem()}
+          </select>
+        </div>
+      </div>);
+  }
 }
+
+LocationInput.propTypes = {
+  locationListener: PropTypes.func.isRequired
+};
 
 export default LocationInput;

@@ -9,13 +9,12 @@
  * under the License.
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-import React from 'react'
-import {Route} from 'react-router-dom'
-import App from './components/App'
+import React from 'react';
+import { Route } from 'react-router-dom';
+import App from './components/App';
 
-export default () => {
+export default function routes() {
   return (
-    <Route path="/" component={App}>
-    </Route>
+    <Route path="/" component={App} />
   );
 }

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component,PropTypes} from 'react';
 import Datetime from 'react-datetime';
 import moment from 'moment';
-import './InputBoxNOP.css'
+import './InputBoxNOP.css';
 
 /**
  * This component will render the input div which appear at the top of the page
@@ -11,32 +11,38 @@ import './InputBoxNOP.css'
  */
 class InputBoxNOP extends Component {
 
-    constructor() {
-        super();
-        this.valid = this.valid.bind(this);
-    }
+  constructor() {
+    super();
+    this.valid = this.valid.bind(this);
+  }
 
-    valid(selectedDateTime) {
-        return moment().isAfter(selectedDateTime);
-    };
+  valid(selectedDateTime) {
+    return moment().isAfter(selectedDateTime);
+  }
 
-    render() {
-        return (
-            <div className="inputBoxWrapper">
-                <div className="innerWrapper">
-                    <label className="textLabel">Patients registered between: </label>
-                    <Datetime className="stDate" dateFormat="YYYY-MM-DD" closeOnSelect={true} onChange={this.props.stdlistener}
-                        isValidDate={this.valid} defaultValue={this.props.initStD} />
+  render() {
+    return (
+      <div className="inputBoxWrapper">
+        <div className="innerWrapper">
+          <label className="textLabel">Patients registered between: </label>
+          <Datetime className="stDate" dateFormat="YYYY-MM-DD" closeOnSelect={true} onChange={this.props.stdlistener}
+            isValidDate={this.valid} defaultValue={this.props.initStD} />
 
-                    <label className="textLabel"> and </label>
-                    <Datetime className="edDate" dateFormat="YYYY-MM-DD" closeOnSelect={true} onChange={this.props.etdlistener}
-                        isValidDate={this.valid} defaultValue={this.props.initEtD} />
-                </div>
-            </div>
+          <label className="textLabel"> and </label>
+          <Datetime className="edDate" dateFormat="YYYY-MM-DD" closeOnSelect={true} onChange={this.props.etdlistener}
+            isValidDate={this.valid} defaultValue={this.props.initEtD} />
+        </div>
+      </div>
 
-        );
-    }
+    );
+  }
 }
 
+InputBoxNOP.propTypes = {
+  stdlistener: PropTypes.func.isRequired,
+  etdlistener: PropTypes.func.isRequired,
+  initStD: PropTypes.instanceOf(Date).isRequired,
+  initEtD: PropTypes.instanceOf(Date).isRequired
+};
 
 export default InputBoxNOP;
