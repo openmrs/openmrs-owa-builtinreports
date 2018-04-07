@@ -22,30 +22,30 @@ import NumberOfVisits from '../reports/NumberOfVisits/NumberOfVisits';
 class MainLayout extends Component {
 
 
-    render() {
-        return (
-            <div className="pageContainer">
-                    <div className="reportNavBar">
-                        <ReportNavComponent />
-                    </div>
-                    <div className="reportContent">
-                        <Switch>
-                            <Route path="/ListOfUsers" component={ListOfUsers} />
-                            <Route path="/ListOfProviders" component={ListOfProviders} />
-                            <Route path="/ListOfDiagnosis" component={ListOfDiagnosis} />
-                            <Route path="/ListOfNewPatients" component={ListOfNewPatients} />
-                            <Route path="/NumberOfAdmissions" component={NumberOfAdmissions} />
-                            <Route path="/NumberOfDischarges" component={NumberOfDischarges} />
-                            <Route path="/NumberOfPatients" component={NumberOfPatients} />
-                            <Route path="/NumberOfTransfers" component={NumberOfTransfers} />
-                            <Route path="/NumberOfVisitNotes" component={NumberOfVisitNotes} />
-                            <Route path="/NumberOfVisits" component={NumberOfVisits} />
-                            <Route component={ListOfUsers} />
-                        </Switch>
-                    </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="pageContainer">
+        <div className="reportNavBar">
+          <ReportNavComponent />
+        </div>
+        <div className="reportContent">
+          <Switch>
+            <Route path="/ListOfUsers" component={ListOfUsers} />
+            <Route path="/ListOfProviders" component={ListOfProviders} />
+            <Route path="/ListOfDiagnosis" component={ListOfDiagnosis} />
+            <Route path="/ListOfNewPatients" component={ListOfNewPatients} />
+            <Route path="/NumberOfAdmissions" component={NumberOfAdmissions} />
+            <Route path="/NumberOfDischarges" component={NumberOfDischarges} />
+            <Route path="/NumberOfPatients" component={NumberOfPatients} />
+            <Route path="/NumberOfTransfers" component={NumberOfTransfers} />
+            <Route path="/NumberOfVisitNotes" component={NumberOfVisitNotes} />
+            <Route path="/NumberOfVisits" component={NumberOfVisits} />
+            <Route component={ListOfUsers} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default MainLayout;

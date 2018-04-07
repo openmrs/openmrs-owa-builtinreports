@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Line from 'react-chartjs';
+import Chart from 'chart.js';
 import { fakeRequestLibrary } from '../../../__mocks__/fakeRequestLibrary';
 import { FAKE_RESPONSE } from '../../../__mocks__/fakeResponse';
 import BasicXYChart from '../../../components/reports/common/BasicXYChart';

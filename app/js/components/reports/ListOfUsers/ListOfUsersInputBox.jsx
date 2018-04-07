@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './ListOfUsersInputBox.css';
 
 
@@ -13,21 +13,24 @@ import './ListOfUsersInputBox.css';
 class ListOfUsersInputBox extends Component {
 
 
-    render() {
-        return (
-            <div className="inputBoxWrapper">
-                <div className="innerWrapper">
-                    <label className="textLabel">Show deleted users: </label>
-                    <div className="toggleContainerLOU">
-                        <label className="switch">
-                            <input type="checkbox" onChange={this.props.listener} />
-                            <span className="slider round"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>);
-    }
+  render() {
+    return (
+      <div className="inputBoxWrapper">
+        <div className="innerWrapper">
+          <label className="textLabel">Show deleted users: </label>
+          <div className="toggleContainerLOU">
+            <label className="switch">
+              <input type="checkbox" onChange={this.props.listener} />
+              <span className="slider round"/>
+            </label>
+          </div>
+        </div>
+      </div>);
+  }
 }
 
+ListOfUsersInputBox.propTypes = {
+  listener: PropTypes.func.isRequired
+};
 
 export default ListOfUsersInputBox;

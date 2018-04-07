@@ -1,0 +1,9 @@
+app/js/__tests__/**
+app/js/__mocks__/**
+node_modules/**
+dist/**
+libs/**
+app/manifest.webapp
+*.css
+*.png
+*.html
