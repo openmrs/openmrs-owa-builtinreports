@@ -17,9 +17,12 @@ export class Header extends Component {
   componentWillMount() {
     this.fetchLocation('/location').then((response) => {
       this.setState({ locationTags: response.results });
-      this.setState({ defaultLocation: response.results[0].display });
     });
 
+    this.fetchLocation("/appui/session").then((response) => {
+      this.setState({defaultLocation: response.sessionLocation.display});
+    });
+    
     this.fetchLocation('/session').then((response) => {
       this.setState({ currentUser: response.user.display });
     });
@@ -28,6 +31,12 @@ export class Header extends Component {
   getLocations() {
     return this.state.locationTags.map((location) => {
       return location.display;
+    });
+  }
+
+  getLocationUUIDTags() {
+    return this.state.locationTags.map((location) => {
+      return location.uuid;
     });
   }
 
@@ -48,7 +57,16 @@ export class Header extends Component {
     this.setState({ currentLocationTag: e.target.id });
   }
 
-  dropDownMenu(locationTags) {
+  setLocation(e, locationUUIDTag) {
+    this.setState({currentLocationTag: e.target.id});
+    const apiHelper = new ApiHelper(null);
+    // post the locationUUID to the session
+    apiHelper.post("/appui/session", {"location" : locationUUIDTag}).then((response) => {
+      // 'Re-render the location based components in UI
+    });
+  }
+
+  dropDownMenu(locationTags, locationUUIDTags) {
     const menuDisplay = [];
     const numPerColumn = Math.ceil(locationTags.length / NUMBER_OF_COLUMNS);
     for (let cols = 0; cols < NUMBER_OF_COLUMNS; cols++) {
@@ -57,17 +75,15 @@ export class Header extends Component {
       let colEnd = (cols + 1) * numPerColumn;
       for (let menuIndex = colStart; menuIndex < colEnd; menuIndex++) {
         menuInColumns.push(
-          <a href="#" key={menuIndex} id={locationTags[menuIndex]} onClick={(e) => {
-            e.preventDefault();
-            this.handleClick(e);
-          }}>{locationTags[menuIndex]}</a>
+          <a href="#" key={menuIndex} id={locationTags[menuIndex]} onClick={((e) =>
+            this.setLocation(e, locationUUIDTags[menuIndex]))
+          }>{locationTags[menuIndex]}</a>
         );
       }
       menuDisplay.push(
         <li className="col-sm-4" key={cols}>{menuInColumns}</li>
       );
     }
-
     return menuDisplay;
   }
 
@@ -105,7 +121,7 @@ export class Header extends Component {
               </a>
               <ul className="dropdown-menu dropdown-menu-large row">
                 {/*Execute the function*/}
-                {this.dropDownMenu(this.getLocations())}
+                {this.dropDownMenu(this.getLocations(), this.getLocationUUIDTags())}
               </ul>
             </li>
           </NavLink>
