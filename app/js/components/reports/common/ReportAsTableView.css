@@ -16,3 +16,7 @@
       border-top: 1px solid;
       overflow: hidden;
 }
+
+.react-grid-Canvas .glyphicon {
+      color: black !important;
+}

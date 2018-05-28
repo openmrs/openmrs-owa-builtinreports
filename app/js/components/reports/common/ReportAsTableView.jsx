@@ -6,6 +6,7 @@ import ReactDataGrid from 'react-data-grid';
 import DataNotFound from './DataNotFound';
 import moment from 'moment';
 import './ReportAsTableView.css';
+import { Router, Route, hashHistory, BrowserRouter, withRouter } from 'react-router-dom'
 
 /**
  * Display results of a report as a table
@@ -26,6 +27,9 @@ class ReportAsTableView extends Component {
     this.resolveResponse = this.resolveResponse.bind(this);
     this.rowGetter = this.rowGetter.bind(this);
     this.init = this.init.bind(this);
+    this.onRowClick = this.onRowClick.bind(this);
+    this.getCellActions = this.getCellActions.bind(this);
+    this.getRedirectParameters = this.getRedirectParameters.bind(this);
   }
 
   componentDidMount() {
@@ -54,9 +58,27 @@ class ReportAsTableView extends Component {
     }
   }
 
+  getVisibleColumns(dataColumns) {
+    let reportColumns = dataColumns;
+    let hiddenColumns = this.props.hiddenColumns;
+    if(hiddenColumns) {
+      reportColumns.map(function(column) {
+        var index = hiddenColumns.indexOf(column.name)
+        if(index>=0) {
+          column.hidden = true;
+        }
+        else {
+          column.hidden = false;
+        }
+     });
+     reportColumns = reportColumns.filter(item => item.hidden !== true)
+    }
+    return reportColumns;
+  }
+  
   resolveResponse(data) {
     this.setState({ report: data });
-    this.setState({ reportColumnNames: data.dataSets[0].metadata.columns });
+    this.setState({ reportColumnNames: this.getVisibleColumns(data.dataSets[0].metadata.columns) });
     this.setState({ reportRowData: data.dataSets[0].rows });
   }
 
@@ -87,6 +109,43 @@ class ReportAsTableView extends Component {
     return row;
   }
 
+  getRedirectParameters(row) {
+    let redirectParameters = this.props.redirectParameters;
+    let response = {}
+    redirectParameters.map(function(parameter) {
+      response[parameter.toLowerCase()] = row[parameter];
+    });
+    response.startDate = this.props.reportParameters.startDate;
+    response.endDate = this.props.reportParameters.endDate;
+    return response;
+  }
+
+  onRowClick(rowIdx, row) {
+    if(this.props.reportTableClickable) {
+      let redirectAddress =  this.props.clickBasePath + row[this.props.redirectUrlKeyColumn];
+      if(!this.props.randomRedirectURL) {
+        this.props.history.push({
+          pathname: redirectAddress,
+          state: this.getRedirectParameters(row)
+        });
+      }
+      else {
+        window.location.assign(redirectAddress);
+      }
+    }
+  };
+
+  getCellActions(column, row) {
+    if(this.props.reportTableClickable) {
+      if (column.key === 'Count') {
+        return [
+          {
+            icon: 'glyphicon glyphicon-menu-right'
+          }
+        ];
+      }
+    }
+  }
 
   render() {
     return (
@@ -98,7 +157,9 @@ class ReportAsTableView extends Component {
             columns={this.getColumns()}
             rowGetter={this.rowGetter}
             rowsCount={this.state.reportRowData.length}
-            minHeight={280} />
+            minHeight={280}
+            onRowClick={this.onRowClick}
+            getCellActions={this.getCellActions} />
         ) : (
           <DataNotFound componentName="Report Table" />
         )}
@@ -115,4 +176,4 @@ ReportAsTableView.propTypes = {
   reportUUID: PropTypes.string.isRequired
 };
 
-export default ReportAsTableView;
+export default withRouter(ReportAsTableView);
