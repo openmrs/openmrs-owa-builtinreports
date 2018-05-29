@@ -1,10 +1,10 @@
 {
-  "name": "openmrs-owa-built-in-reports",
+  "name": "openmrs-owa-builtinreports",
   "version": "0.9.4",
   "description": "built-in reports for reference application",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JudeNiroshan/openmrs-owa-openmrs-owa-built-in-reports"
+    "url": "https://github.com/openmrs/openmrs-owa-builtinreports"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
