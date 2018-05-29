@@ -24,7 +24,9 @@ exports[`<ReportAsTableView />  component displays as expected 1`] = `
         },
       ]
     }
+    getCellActions={[Function]}
     minHeight={280}
+    onRowClick={[Function]}
     rowGetter={[Function]}
     rowsCount={5}
   />
