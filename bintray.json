@@ -1,16 +1,16 @@
 {
     "package": {
-        "name": "openmrs-owa-built-in-reports",
+        "name": "openmrs-owa-builtinreports",
         "repo": "owa",
-        "subject": "judeniroshan"
+        "subject": "openmrs"
     },
 
     "version": {
         "name": "0.9.4",
         "released": "2017-08-29"
     },
-
-    "files":[{"includePattern": "openmrs-owa-built-in-reports-0.9.4.zip", "uploadPattern": "openmrs-owa-built-in-reports-0.9.4.zip"}],
+    
+    "files":[{"includePattern": "(.*\\.zip)", "uploadPattern": "$1"}],
     "publish": true,
     "override": true
 }
