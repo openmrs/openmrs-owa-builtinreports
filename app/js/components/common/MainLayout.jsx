@@ -12,8 +12,7 @@ import NumberOfPatients from '../reports/NumberOfPatients/NumberOfPatients';
 import NumberOfTransfers from '../reports/NumberOfTransfers/NumberOfTransfers';
 import NumberOfVisitNotes from '../reports/NumberOfVisitNotes/NumberOfVisitNotes';
 import NumberOfVisits from '../reports/NumberOfVisits/NumberOfVisits';
-
-
+import ListOfPatientsForDiagnosis from '../reports/ListOfPatientsForDiagnosis/ListOfPatientsForDiagnosis';
 
 /**
  * This component will be shown in the left side which allows users to navigate through
@@ -33,6 +32,7 @@ class MainLayout extends Component {
             <Route path="/ListOfUsers" component={ListOfUsers} />
             <Route path="/ListOfProviders" component={ListOfProviders} />
             <Route path="/ListOfDiagnosis" component={ListOfDiagnosis} />
+            <Route path="/ListOfPatientsForDiagnosis/:diagnosisUuid" component={ListOfPatientsForDiagnosis} />
             <Route path="/ListOfNewPatients" component={ListOfNewPatients} />
             <Route path="/NumberOfAdmissions" component={NumberOfAdmissions} />
             <Route path="/NumberOfDischarges" component={NumberOfDischarges} />
