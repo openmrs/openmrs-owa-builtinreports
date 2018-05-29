@@ -24,7 +24,7 @@ class InputBoxLOD extends Component {
     return (
       <div className="inputBoxWrapper">
         <div className="innerWrapper">
-          <label className="textLabel">Patients registered between: </label>
+          <label className="textLabel">Encounters registered between: </label>
           <Datetime className="stDate" dateFormat="YYYY-MM-DD" closeOnSelect={true} onChange={this.props.stdlistener}
             isValidDate={this.valid} defaultValue={this.props.initStD} />
 

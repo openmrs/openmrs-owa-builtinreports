@@ -4,6 +4,7 @@ import ReportAsPieChart from '../common/ReportAsPieChart';
 import ReportTitle from '../common/ReportTitle';
 import InputBoxLOD from './InputBoxLOD';
 import moment from 'moment';
+import { CommonReportUtil } from '../../../helpers/CommonReportUtil';
 
 /**
  * Display the result of List of diagnosis report
@@ -65,7 +66,12 @@ class ListOfDiagnosis extends Component {
           initEtD={this.state.parameters.endDate} />
 
         <ReportAsTableView reportUUID={this.getReportUUID()}
-          reportParameters={this.state.parameters} />
+          reportParameters={this.state.parameters} 
+          reportTableClickable={true} 
+          clickBasePath={"ListOfPatientsForDiagnosis/"} 
+          hiddenColumns={["DiagnosisUuid"]} 
+          redirectUrlKeyColumn={["DiagnosisUuid"]} 
+          redirectParameters={["DiagnosisUuid","Diagnosis"]} />
 
         <ReportAsPieChart reportUUID={this.getReportUUID()}
           reportParameters={this.state.parameters}
