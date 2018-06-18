@@ -44,8 +44,11 @@ class GroupByDateChart extends Component {
     let ctx = this.refs.groupByDateChart;
 
     if (ctx != null && ctx != 'undefined') {
-
-      let myChart = new Chart(ctx, {
+      let myChart = null;
+      if (myChart != undefined || myChart != null) {
+        myChart.destroy();
+      }
+      myChart = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: Object.keys(this.state.result),
