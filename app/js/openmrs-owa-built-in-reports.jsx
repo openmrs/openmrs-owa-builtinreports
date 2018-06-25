@@ -11,13 +11,13 @@
  */
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, hashHistory, BrowserRouter } from 'react-router-dom';
+import { Router, Route, hashHistory, HashRouter } from 'react-router-dom';
 
 import routes from './routes';
 
 const packageJson = require("../manifest.webapp");
 render((
-  <BrowserRouter basename={"/openmrs/owa/openmrs-owa-built-in-reports-" + packageJson.version} history={hashHistory}>
+  <HashRouter history={hashHistory}>
     {routes()}
-  </BrowserRouter>
+  </HashRouter>
 ), document.getElementById('app'));
