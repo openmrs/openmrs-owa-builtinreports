@@ -30,6 +30,16 @@ class InputBoxLOP extends Component {
               isValidDate={this.valid} defaultValue={this.props.initDateTime} />
           </div>
         </div>
+        <div className="innerWrapper">
+          <label className="textLabel">View Chart By : </label>
+          <div className="toggleContainer">
+          <select className="form-control" onChange={this.props.handlechartViewTypeSelector}>
+            <option value="month">Month</option>
+            <option value="week">Week</option>
+            <option value="day">Day</option>
+          </select>
+          </div>
+        </div>
       </div>
 
     );
