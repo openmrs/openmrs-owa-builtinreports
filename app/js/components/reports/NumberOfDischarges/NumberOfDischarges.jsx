@@ -12,13 +12,11 @@ class NumberOfDischarges extends Component {
   constructor() {
     super();
     this.state = {
-      parameters: {
-        location: ''
-      }
+      parameters: {}
     };
     this.getReportUUID = this.getReportUUID.bind(this);
     this.getReportUUIDForAllLocationsReport = this.getReportUUIDForAllLocationsReport.bind(this);
-    this.handleLocationSelector = this.handleLocationSelector.bind(this);
+    this.getCountColumnInfo = this.getCountColumnInfo.bind(this);
   }
 
   getReportUUID() {
@@ -29,35 +27,23 @@ class NumberOfDischarges extends Component {
     return "d1a00e10-cecb-4775-8c4f-2ed0b059d7b9";
   }
 
-  handleLocationSelector(event) {
-    this.setState({
-      parameters: {
-        location: event.target.value
-      }
-    });
+  getCountColumnInfo() {
+    return { "countColumnName" : "Count", "totalCountLabel" : "Total Count of the Discharges"}
   }
 
   render() {
     return (
       <div>
         <ReportTitle heading="Number of Discharges" />
-        <LocationInput locationListener={this.handleLocationSelector} />
-
-        {this.state.parameters.location != null && this.state.parameters.location != '' ? (
-
-          <ReportAsTableView reportUUID={this.getReportUUID()}
-            reportParameters={this.state.parameters} />
-
-        ) : (
           <div>
           <ReportAsTableView reportUUID={this.getReportUUIDForAllLocationsReport()}
-            reportParameters={this.state.parameters} />
+            reportParameters={this.state.parameters}
+            addSumOfCount={this.getCountColumnInfo()} />
             
             <ReportAsPieChart reportUUID={this.getReportUUIDForAllLocationsReport()}
             reportParameters={this.state.parameters}
             labels="Location Name" qty="Count" limit={10} />
           </div>
-        )}
       </div>
     );
   }
