@@ -7,6 +7,7 @@ import DataNotFound from './DataNotFound';
 import moment from 'moment';
 import './ReportAsTableView.css';
 import { Router, Route, hashHistory, BrowserRouter, withRouter } from 'react-router-dom'
+import ReportAsTableViewHeader from './ReportAsTableViewHeader';
 
 /**
  * Display results of a report as a table
@@ -22,14 +23,16 @@ class ReportAsTableView extends Component {
         }
       },
       reportColumnNames: Array(),
-      reportRowData: Array()
+      reportRowData: Array(),
     };
+    this.countSum = 0;
     this.resolveResponse = this.resolveResponse.bind(this);
     this.rowGetter = this.rowGetter.bind(this);
     this.init = this.init.bind(this);
     this.onRowClick = this.onRowClick.bind(this);
     this.getCellActions = this.getCellActions.bind(this);
     this.getRedirectParameters = this.getRedirectParameters.bind(this);
+    this.setSumOfColumn = this.setSumOfColumn.bind(this);
   }
 
   componentDidMount() {
@@ -76,13 +79,23 @@ class ReportAsTableView extends Component {
     return reportColumns;
   }
   
+  setSumOfColumn(columnName) {
+    this.state.reportRowData.forEach((e) => {
+      this.countSum += e[columnName];
+      this.forceUpdate();
+    });
+  }
+
   resolveResponse(data) {
     this.setState({ report: data });
     this.setState({ reportColumnNames: this.getVisibleColumns(data.dataSets[0].metadata.columns) });
     this.setState({ reportRowData: data.dataSets[0].rows });
+    if(this.props.addSumOfCount) {
+      this.setSumOfColumn(this.props.addSumOfCount.countColumnName);
+    }
   }
 
-  getColumns() {
+  getColumns() { 
     let columns = this.state.reportColumnNames.map(function (element) {
 
       let displayName = element.label;
@@ -152,7 +165,7 @@ class ReportAsTableView extends Component {
       <div className="TableDivHolder">
 
         {this.getColumns().length > 0 ? (
-
+          <div>
           <ReactDataGrid
             columns={this.getColumns()}
             rowGetter={this.rowGetter}
@@ -160,6 +173,13 @@ class ReportAsTableView extends Component {
             minHeight={280}
             onRowClick={this.onRowClick}
             getCellActions={this.getCellActions} />
+            { this.props.addSumOfCount != null &&
+              <ReportAsTableViewHeader
+              totalCountLabel = {this.props.addSumOfCount.totalCountLabel}
+              totalCount={this.countSum} 
+              />
+            }
+           </div>
         ) : (
           <DataNotFound componentName="Report Table" />
         )}
