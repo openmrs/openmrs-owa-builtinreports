@@ -12,12 +12,10 @@ class NumberOfTransfers extends Component {
   constructor() {
     super();
     this.state = {
-      parameters: {
-        location: ''
-      }
+      parameters: {}
     };
-    this.getReportUUID = this.getReportUUID.bind(this);
-    this.handleLocationSelector = this.handleLocationSelector.bind(this);
+    this.getReportUUID = this.getReportUUID.bind(this); 
+    this.getCountColumnInfo = this.getCountColumnInfo.bind(this);
   }
 
   getReportUUID() {
@@ -28,26 +26,14 @@ class NumberOfTransfers extends Component {
     return "ad418753-8a1c-4f5f-8c61-5599369bd5d2";
   }
 
-  handleLocationSelector(event) {
-    this.setState({
-      parameters: {
-        location: event.target.value
-      }
-    });
+  getCountColumnInfo() {
+    return { "countColumnName" : "Count", "totalCountLabel" : "Total Count of the Transfers"}
   }
 
   render() {
     return (
       <div>
         <ReportTitle heading="Number of Transfers" />
-        <LocationInput locationListener={this.handleLocationSelector} />
-
-        {this.state.parameters.location != null && this.state.parameters.location != '' ? (
-
-          <ReportAsTableView reportUUID={this.getReportUUID()}
-            reportParameters={this.state.parameters} />
-
-        ) : (
           <div>
           <ReportAsTableView reportUUID={this.getReportUUIDForAllLocationsReport()}
             reportParameters={this.state.parameters} />
@@ -56,7 +42,6 @@ class NumberOfTransfers extends Component {
             reportParameters={this.state.parameters}
             labels="Location Name" qty="Count" limit={10} />
           </div>
-        )}
       </div>
     );
   }
