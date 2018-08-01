@@ -3,6 +3,8 @@ import ReportAsTableView from '../common/ReportAsTableView';
 import ReportTitle from '../common/ReportTitle';
 import GroupByDateChart from '../common/GroupByDateChart';
 import InputBox from '../ListOfUsers/ListOfUsersInputBox';
+import { CommonReportUtil } from '../../../helpers/CommonReportUtil';
+
 /**
  * Display the result of List of providers report
  */
@@ -21,7 +23,7 @@ class ListOfProviders extends Component {
   }
 
   getReportUUID() {
-    return "d3950ea8-4881-11e7-a919-92ebcb67fe33";
+    return "d3950ea8-4881-11e7-a919-92ebcb67fe34";
   }
 
   eventListenerForParameter(e) {
@@ -42,7 +44,12 @@ class ListOfProviders extends Component {
         <InputBox listener={this.eventListenerForParameter} />
 
         <ReportAsTableView reportUUID={this.getReportUUID()}
-          reportParameters={this.state.parameters} />
+          reportParameters={this.state.parameters}
+          reportTableClickable={true} 
+          clickBasePath={"ListOfPatientsForProvider/"} 
+          hiddenColumns={["ProviderUuid"]} 
+          redirectUrlKeyColumn={["ProviderUuid"]} 
+          redirectParameters={["ProviderUuid","FamilyName","GivenName","RoleName","Created"]}  />
 
         <GroupByDateChart reportUUID={this.getReportUUID()}
           reportParameters={this.state.parameters} groupBy="month" />

@@ -13,6 +13,7 @@ import NumberOfTransfers from '../reports/NumberOfTransfers/NumberOfTransfers';
 import NumberOfVisitNotes from '../reports/NumberOfVisitNotes/NumberOfVisitNotes';
 import NumberOfVisits from '../reports/NumberOfVisits/NumberOfVisits';
 import ListOfPatientsForDiagnosis from '../reports/ListOfPatientsForDiagnosis/ListOfPatientsForDiagnosis';
+import ListOfPatientsForProvider from '../reports/ListOfPatientsForProvider/ListOfPatientsForProvider';
 
 /**
  * This component will be shown in the left side which allows users to navigate through
@@ -31,6 +32,7 @@ class MainLayout extends Component {
           <Switch>
             <Route path="/ListOfUsers" component={ListOfUsers} />
             <Route path="/ListOfProviders" component={ListOfProviders} />
+            <Route path="/ListOfPatientsForProvider/:providerUuid" component={ListOfPatientsForProvider} />
             <Route path="/ListOfDiagnosis" component={ListOfDiagnosis} />
             <Route path="/ListOfPatientsForDiagnosis/:diagnosisUuid" component={ListOfPatientsForDiagnosis} />
             <Route path="/ListOfNewPatients" component={ListOfNewPatients} />
