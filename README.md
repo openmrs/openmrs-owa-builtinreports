@@ -2,11 +2,10 @@
 
 <img src="https://cloud.githubusercontent.com/assets/668093/12567089/0ac42774-c372-11e5-97eb-00baf0fccc37.jpg" alt="OpenMRS"/>
 
-# openmrs-owa-built-in-reports
+# OpenMRS BuiltIn Reports Open Web App
 
-This repository contains the openmrs-owa-built-in-reports OpenMRS Open Web App.
-
-> Add a description of what your app does here.
+This repository contains the openmrs-owa-builtinreports OpenMRS Open Web App.
+Built-in reports OWA provides basic reporting and give some insight into your data in Reference Application distribution. Data can be seen visually how they have spread and it gives an overview about the present data. Currently there are some basic reports available. 
 
 For further documentation about OpenMRS Open Web Apps see
 [the wiki page](https://wiki.openmrs.org/display/docs/Open+Web+Apps+Module).
@@ -29,7 +28,7 @@ Build the distributable using [Webpack](https://webpack.github.io/) as follows:
 npm run build:prod
 ````
 
-This will create a file called `openmrs-owa-built-in-reports.zip` file in the `dist` directory,
+This will create a file called `openmrs-owa-builtinreports-1.0.0.zip` file in the `dist` directory,
 which can be uploaded to the OpenMRS Open Web Apps module.
 
 ### Local Deploy
@@ -40,14 +39,14 @@ To deploy directly to your local Open Web Apps directory, run:
 npm run build:deploy
 ````
 
-This will build and deploy the app to the `C:\\Users\\Jude\\openmrs\\test123\\owa\\`
-directory. To change the deploy directory, edit the `LOCAL_OWA_FOLDER` entry in
+This will build and deploy the app to the `/home/user/openmrs/server/owa/`
+directory(In linux based distributions). To change the deploy directory, edit the `LOCAL_OWA_FOLDER` entry in
 `config.json`. If this file does not exists, create one in the root directory
 that looks like:
 
 ```js
 {
-  "LOCAL_OWA_FOLDER": "C:\\Users\\Jude\\openmrs\\test123\\owa\\"
+  "LOCAL_OWA_FOLDER": "/home/user/openmrs/server/owa/"
 }
 ```
 
@@ -59,8 +58,8 @@ will need the `APP_ENTRY_POINT` entry in your `config.json` file:
 
 ```js
 {
-  "LOCAL_OWA_FOLDER": "C:\\Users\\Jude\\openmrs\\test123\\owa\\",
-  "APP_ENTRY_POINT": "http://localhost:8080/openmrs/owa/openmrs-owa-built-in-reports/index.html"
+  "LOCAL_OWA_FOLDER": "/home/user/openmrs/server/owa/",
+  "APP_ENTRY_POINT": "http://localhost:8080/openmrs/owa/openmrs-owa-builtinreports-1.0.0/index.html"
 }
 ```
 Run Browsersync as follows:
