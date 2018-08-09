@@ -53,8 +53,8 @@ let getConfig = function () {
   } catch (err) {
     // create file with defaults if not found
     config = {
-      'LOCAL_OWA_FOLDER': 'C:\\Users\\Jude\\openmrs\\ee\\owa\\',
-      'APP_ENTRY_POINT': 'http://localhost:8080/openmrs/owa/openmrs-owa-built-in-reports/index.html'
+      'LOCAL_OWA_FOLDER': '/home/user/openmrs/server/owa/',
+      'APP_ENTRY_POINT': 'http://localhost:8080/openmrs/owa/openmrs-owa-builtinreports-1.0.0/index.html'
     };
     fs.writeFile('config.json', JSON.stringify(config));
     return config;
