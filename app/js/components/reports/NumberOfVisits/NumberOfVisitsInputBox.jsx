@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import '../ListOfUsers/ListOfUsersInputBox.css';
-import './NumberOfVisitsInputBox.css';
+
 
 /**
  * This component will render the input div which appear at the top of the page
