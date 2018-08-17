@@ -30,7 +30,7 @@ const WebpackOnBuildPlugin = require('on-build-webpack');
 const nodeModulesDir = path.resolve(__dirname, '../node_modules');
 
 const pjson = require('./package.json');
-const THIS_APP_ID = 'openmrs-owa-built-in-reports' + "-" + pjson.version;
+const THIS_APP_ID = 'openmrs-owa-builtinreports' + "-" + pjson.version;
 
 const plugins = [];
 const nodeModules = {};
