@@ -10,7 +10,7 @@
         "released": "2018-09-09"
     },
     
-    "files":[{"includePattern": "(.*\\.zip)", "uploadPattern": "$1"}],
+    "files":[{"includePattern": "./(.*\\.zip)", "uploadPattern": "$1"}],
     "publish": true,
     "override": true
 }
