@@ -7,7 +7,7 @@
     "48": "/img/omrs-button.png"
   },
   "developer": {
-    "name": ["Jude Niroshan", "Jeyasumangala"],
+    "name": "Jude Niroshan, Jeyasumangala",
     "url": "https://github.com/openmrs/openmrs-owa-builtinreports"
   },
   "default_locale": "en",
