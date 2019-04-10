@@ -56,7 +56,9 @@ let getConfig = function () {
       'LOCAL_OWA_FOLDER': '/home/user/openmrs/server/owa/',
       'APP_ENTRY_POINT': 'http://localhost:8080/openmrs/owa/openmrs-owa-builtinreports-1.0.0/index.html'
     };
-    fs.writeFile('config.json', JSON.stringify(config));
+    fs.writeFile('config.json', JSON.stringify(config), function(err, result) {
+      if(err) console.log('error', err);
+    });
     return config;
   } finally {
     // console.log("return the config");
