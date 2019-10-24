@@ -126,10 +126,12 @@ export class Header extends Component {
             </li>
           </NavLink>
 
-          <li class='logout'>
+          <NavLink to="" activeClassName="active">
+            <li>
               <a href="/openmrs/appui/header/logout.action?successUrl=openmrs">Logout {' '}
                 <span className="glyphicon glyphicon-log-out" /></a>
-          </li>
+            </li>
+          </NavLink>
         </ul>
       </header>
     );
