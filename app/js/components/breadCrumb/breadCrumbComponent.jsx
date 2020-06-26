@@ -9,7 +9,7 @@ class BreadCrumbComponent extends Component {
   render() {
     return (
       <div className="breadcrumb">
-        <a href="/openmrs" className="breadcrumb-item">
+        <a href="/openmrs/index.htm" className="breadcrumb-item">
           <span className="glyphicon glyphicon-home breadcrumb-item" aria-hidden="true" />
         </a>
         <span className="glyphicon glyphicon-chevron-right breadcrumb-item separator" aria-hidden="true" />
