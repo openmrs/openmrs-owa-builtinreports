@@ -97,7 +97,6 @@ export class Header extends Component {
         </div>
 
         <ul className="navbar-right nav-header">
-          <NavLink to="" activeClassName="active">
             <li className="dropdown">
               <a className="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <span className="glyphicon glyphicon-user" /> {' ' + this.state.currentUser}
@@ -109,7 +108,6 @@ export class Header extends Component {
                 </li>
               </ul>
             </li>
-          </NavLink>
 
           <NavLink to="" activeClassName="active">
             <li className="dropdown dropdown-large">
