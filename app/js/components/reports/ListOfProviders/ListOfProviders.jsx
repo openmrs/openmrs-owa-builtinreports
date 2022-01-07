@@ -23,7 +23,7 @@ class ListOfProviders extends Component {
   }
 
   getReportUUID() {
-    return "d3950ea8-4881-11e7-a919-92ebcb67fe34";
+    return "d3950ea8-4881-11e7-a919-92ebcb67fe33";
   }
 
   eventListenerForParameter(e) {
